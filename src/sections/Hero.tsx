@@ -1,0 +1,77 @@
+import glow from '../assets/1 БЛОК/Ellipse 2536.png'
+import badgeBg from '../assets/1 БЛОК/Rectangle 240649020.png'
+import heroPhoto from '../assets/1 БЛОК/image_150-removebg 1.png'
+
+export default function Hero() {
+  return (
+    <section className="overflow-hidden px-6 pt-8 pb-6 text-center">
+      <p className="text-[11px] font-normal uppercase tracking-wide text-brown/50">
+        Авторский онлайн-курс «Жизнь без соплей»
+      </p>
+
+      <h1 className="h-display mt-4 text-[23px] leading-[1.05] tracking-[-0.02em] text-brown">
+        Курс для мам,
+        <br />
+        <span className="text-accent">которые устали бояться</span>
+      </h1>
+
+      <div className="mt-4 flex justify-center">
+        <span className="rounded-[10px] bg-[#a84322] px-4 py-2 text-[15px] font-semibold text-white">
+          15 минут в день, с телефона и Вы:
+        </span>
+      </div>
+
+      <p className="mt-3 text-[15px] leading-relaxed text-brown">
+        наконец понимаете, что происходит с ребёнком и когда правда пора бить
+        тревогу
+      </p>
+
+      <a
+        href="#zapis"
+        className="mt-6 block w-full rounded-2xl bg-[linear-gradient(122deg,#f34d05_1.6%,#ec734b_52%,#f34d05_109%)] py-4 text-[16px] font-semibold uppercase tracking-wide text-white shadow-[inset_0_0_39.33px_#FFFFFF,0_10px_20px_-6px_rgba(243,77,5,0.35)] transition active:scale-[0.99]"
+      >
+        Хочу на курс
+      </a>
+
+      {/* Фото + бейдж */}
+      <div className="relative mt-8 flex justify-center">
+        {/* Тёплое свечение-подложка */}
+        <img
+          src={glow}
+          alt=""
+          className="pointer-events-none absolute bottom-[-7%] left-1/2 z-20 h-[95px] w-[112%] max-w-none -translate-x-1/2 select-none object-fill"
+        />
+        {/* Бейдж-плашка */}
+        <div className="absolute left-[56%] top-0 z-0 flex w-[86px] -translate-x-1/2 flex-col items-center overflow-hidden rounded-2xl pb-4 pt-8">
+          <img
+            src={badgeBg}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          {/* Иконка-человечек */}
+          <span className="absolute -top-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#8a3d1e]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 21c0-4 4-6 8-6s8 2 8 6" />
+            </svg>
+          </span>
+          <div className="relative z-10 text-center text-cream">
+            <p className="text-[8px] font-medium tracking-wide">БОЛЕЕ</p>
+            <p className="text-[26px] font-extrabold leading-none">31</p>
+            <p className="text-[9px] font-semibold tracking-wide">ТЫСЯЧ</p>
+            <p className="mt-1.5 px-1 text-[7px] leading-tight text-cream/80">
+              количество мам-подписчиц у врача в инстаграм
+            </p>
+          </div>
+        </div>
+
+        <img
+          src={heroPhoto}
+          alt="Врач ЛОР с ребёнком"
+          className="relative z-10 w-[78%] select-none"
+          draggable={false}
+        />
+      </div>
+    </section>
+  )
+}

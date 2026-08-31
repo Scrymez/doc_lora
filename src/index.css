@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Inter:wght@700;800;900&display=swap');
+
+/* Design tokens — RushDSGN (из Figma get_design_context) */
+@theme {
+  --color-cream: #f4ece1;
+  --color-beige: #e7dac7;
+  --color-sand: #d8c4a8;
+  --color-brown: #42281e;
+  --color-brown-soft: #6a4d3c;
+  --color-accent: #a84322;
+  --color-accent-soft: #ec734b;
+
+  --font-sans: 'Golos Text', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Заголовки-капсы (Inter ExtraBold) */
+@utility h-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-brown);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
