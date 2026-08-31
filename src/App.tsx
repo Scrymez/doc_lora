@@ -1,3 +1,4 @@
+import Benefits from './sections/Benefits'
 import CourseValue from './sections/CourseValue'
 import Hero from './sections/Hero'
 import NoSymptoms from './sections/NoSymptoms'
@@ -12,6 +13,7 @@ function App() {
       <Symptoms />
       <NoSymptoms />
       <CourseValue />
+      <Benefits />
     </main>
   )
 }
