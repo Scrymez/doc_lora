@@ -43,9 +43,9 @@ export default function CourseValue() {
         <span className="absolute -top-6 right-4 flex h-14 w-14 items-center justify-center rounded-full bg-[radial-gradient(circle_at_35%_30%,#ffe9c0,#e0a55a)]">
           <svg viewBox="0 0 24 24" className="h-9 w-9" aria-hidden>
             <g fill="#42281e">
-              <rect x="10.6" y="1.5" width="2.8" height="21" rx="1.4" />
-              <rect x="10.6" y="1.5" width="2.8" height="21" rx="1.4" transform="rotate(60 12 12)" />
-              <rect x="10.6" y="1.5" width="2.8" height="21" rx="1.4" transform="rotate(120 12 12)" />
+              <rect x="10.1" y="1.5" width="3.8" height="21" rx="1.9" />
+              <rect x="10.1" y="1.5" width="3.8" height="21" rx="1.9" transform="rotate(60 12 12)" />
+              <rect x="10.1" y="1.5" width="3.8" height="21" rx="1.9" transform="rotate(120 12 12)" />
             </g>
           </svg>
         </span>
