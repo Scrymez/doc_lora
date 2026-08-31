@@ -62,7 +62,7 @@ const cards: Card[] = [
 
 export default function Symptoms() {
   return (
-    <section className="bg-cream px-5 pt-6 pb-10">
+    <section className="px-5 pt-6 pb-10">
       <h2 className="h-display text-[16px] leading-[20px] text-brown">
         <span className="text-accent">С какими симптомами</span>
         <br />

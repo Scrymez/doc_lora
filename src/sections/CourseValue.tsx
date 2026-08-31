@@ -37,7 +37,7 @@ const items: ReactNode[] = [
 
 export default function CourseValue() {
   return (
-    <section className="bg-cream px-5 py-8">
+    <section className="px-5 py-8">
       <div className="relative rounded-[20px] bg-[#42281e] px-5 pt-8 pb-7">
         {/* Звёздочка */}
         <span className="absolute -top-6 right-4 flex h-14 w-14 items-center justify-center rounded-full bg-[radial-gradient(circle_at_35%_30%,#ffe9c0,#e0a55a)]">

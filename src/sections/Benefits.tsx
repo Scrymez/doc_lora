@@ -42,7 +42,7 @@ function Arrow() {
 
 export default function Benefits() {
   return (
-    <section className="bg-cream px-5 pt-2 pb-10">
+    <section className="px-5 pt-2 pb-10">
       <h2 className="font-display text-[16px] font-extrabold uppercase leading-[20px] text-brown">
         Благодаря курсу вы:
       </h2>

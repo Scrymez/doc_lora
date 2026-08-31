@@ -62,7 +62,7 @@ const items = [
 
 export default function Waiting() {
   return (
-    <section className="relative z-30 -mt-8 rounded-t-[24px] bg-cream px-5 pt-9 pb-10">
+    <section className="px-5 pt-9 pb-10">
       <h2 className="h-display max-w-[287px] text-[16px] leading-[20px] text-brown">
         Если просто <span className="text-accent">ждать,</span>
         <br />
