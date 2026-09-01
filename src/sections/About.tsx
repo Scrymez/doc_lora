@@ -3,7 +3,7 @@ import av2 from '../assets/Новая папка/БЛОК 6/Ellipse 2526.png'
 import av3 from '../assets/Новая папка/БЛОК 6/Ellipse 2527.png'
 import av4 from '../assets/Новая папка/БЛОК 6/Ellipse 2528.png'
 import av5 from '../assets/Новая папка/БЛОК 6/Ellipse 2529.png'
-import photo from '../assets/БЛОК 6/Маржана.png'
+import photo from '../assets/Новая папка 2/БЛОК 6/Маржана.svg'
 
 const avatars = [av1, av2, av3, av4, av5]
 
@@ -18,16 +18,16 @@ export default function About() {
           className="w-full select-none"
           draggable={false}
         />
-        <div className="absolute bottom-[5px] left-[19.7%] rounded-[16px] bg-[#cdcdcd]/70 p-[3px]">
-          <div className="flex h-[72px] w-[65px] flex-col rounded-[13px] bg-[#a84322] px-2 pt-1.5 text-white">
-            <p className="font-['Manrope'] text-[8px] font-medium leading-none tracking-[-0.06em] opacity-90">
+        <div className="absolute bottom-[5px] left-[19.7%] rounded-[16px] bg-[#cdcdcd]/70 p-[6px]">
+          <div className="relative h-[66px] w-[59px] overflow-hidden rounded-[15px] bg-[#a84322]">
+            <p className="absolute left-[7px] top-[6px] font-['Manrope'] text-[8px] font-medium leading-[9px] text-white">
               опыт работы
               <br />
               больше 8 лет
             </p>
-            <p className="mt-auto -mb-0.5 bg-gradient-to-r from-[#ffefd4] to-[#ffc26f] bg-clip-text font-['Manrope'] font-extrabold leading-none tracking-[-0.11em] text-transparent">
-              <span className="text-[38px]">8</span>
-              <span className="text-[28px]">+</span>
+            <p className="absolute bottom-[-2px] left-[5px] bg-gradient-to-r from-[#ffefd4] to-[#ffc26f] bg-clip-text font-['Manrope'] font-extrabold leading-none tracking-[-0.11em] text-transparent">
+              <span className="text-[54px]">8</span>
+              <span className="text-[40px]">+</span>
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
-@import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Inter:wght@700;800;900&family=Manrope:wght@500;600;700&display=swap');
+@import 'tailwindcss';
 
 /* Design tokens — RushDSGN (из Figma get_design_context) */
 @theme {
@@ -35,3 +35,56 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
+
+@media (max-width: 340px) {
+  main > section:first-child { padding-left: 16px; padding-right: 16px; }
+}
+
+.cta { display:inline-flex; align-items:center; justify-content:center; min-width:260px; padding:20px 34px; border-radius:28px; color:white; font-weight:800; text-transform:uppercase; background:linear-gradient(122deg,#f34d05,#ec734b 52%,#f34d05); box-shadow:inset 0 0 30px #ffffffa0,0 12px 24px -10px #f34d05; }
+.section-title { font:800 20px/1 var(--font-display); text-align:center; text-transform:uppercase; color:#42281e; }
+.price-section { padding:58px 18px 34px; background:#fcf5e9; border-radius:0 0 24px 24px; }
+.price-card { margin-top:18px; padding:16px 16px 14px; border-radius:17px; background:linear-gradient(145deg,#4b2d23,#3d251d); color:#fff1dc; }
+.price-card p { display:inline-block; padding:5px 14px; border-radius:20px; background:#5da540; color:#fff; font-size:11px; font-weight:700; text-transform:uppercase; }
+.price-heading { margin-top:26px; display:flex; align-items:center; justify-content:space-between; }
+.price-heading strong { font:800 22px/1 var(--font-display); text-transform:uppercase; }
+.price-heading span { padding:5px 12px; border-radius:20px; background:#bd4b27; color:#fff; font-size:11px; font-weight:700; text-transform:uppercase; }
+.price-card ul { margin:22px 0 0; padding:0; list-style:none; color:#f7eeee; font-size:12px; line-height:1.35; }
+.price-card li { position:relative; margin:0 0 13px; padding-left:18px; }
+.price-card li::before { content:''; position:absolute; left:0; top:4px; width:8px; height:8px; border-radius:3px; background:linear-gradient(135deg,#fff1b5,#ffc56d); }
+.price-number { display:flex; align-items:baseline; gap:28px; margin-top:6px; padding:14px 45px 4px; border-top:1px solid rgba(255,255,255,.08); }
+.price-number b { font-size:28px; color:#ffe2b2; white-space:nowrap; }.price-number s { color:#a99388; font-size:14px; }
+.price-button { display:flex; align-items:center; justify-content:center; width:100%; margin-top:4px; padding:12px; border-radius:10px; background:linear-gradient(100deg,#ff7049,#ff9a73 50%,#ff7049); box-shadow:inset 0 0 22px #fff8; color:#fff; font-size:13px; font-weight:700; }
+.price-card small { display:block; margin-top:13px; color:#cdbeb7; font-size:9px; line-height:1.35; }
+.faq { margin-top:56px; }
+.faq h2 { margin:0 0 18px; font:800 25px/1 var(--font-display); letter-spacing:-.03em; text-transform:uppercase; }
+.faq-item { border-top:2px solid #c1b6ac; padding:20px 0; }
+.faq-item:last-child { border-bottom:2px solid #c1b6ac; }
+.faq-item button { width:100%; min-height:28px; display:flex; justify-content:space-between; align-items:center; gap:16px; border:0; padding:0; background:none; color:#42281e; text-align:left; font:inherit; font-size:16px; letter-spacing:-.035em; cursor:pointer; }
+.faq-item button b { font-weight:600; }
+.faq-item button span { display:flex; width:30px; height:30px; flex:0 0 30px; align-items:center; justify-content:center; color:#42281e; font:300 34px/24px Arial,sans-serif; }
+.faq-item.is-open { padding-bottom:24px; }
+.faq-item.is-open button span { border-radius:50%; background:#b64624; color:#fff; font-size:31px; transform:rotate(0deg); }
+.faq-item p { max-width:345px; margin-top:13px; color:#7d6b60; font-size:15px; line-height:1.32; }
+footer { padding:76px 24px 84px; background:#fcf5e9; text-align:center; }
+.footer-copy h2 { font:800 26px/1.02 var(--font-display); letter-spacing:-.025em; text-transform:uppercase; }
+.footer-copy h2 span { color:#ad4020; }
+.footer-copy p { margin:24px auto 0; color:#42281e; font-size:17px; line-height:1.2; }
+.video-placeholder { height:204px; margin-top:27px; display:flex; align-items:center; justify-content:center; border:8px solid #b5aaa1; border-radius:20px; }
+.video-placeholder button { display:flex; align-items:center; gap:12px; border:0; padding:13px 25px; border-radius:999px; background:#70574b; color:#fff; font-size:25px; font-weight:600; cursor:pointer; }
+.video-placeholder button span { font-size:17px; }
+.footer-sign { display:block; margin-top:18px; color:#ad4020; font:800 20px var(--font-display); text-transform:uppercase; }
+.footer-button { display:flex; width:68%; min-width:250px; margin:14px auto 0; align-items:center; justify-content:center; padding:14px 22px; border-radius:15px; background:linear-gradient(100deg,#ff754c,#ff936d 50%,#ff754c); box-shadow:inset 0 0 22px #fff7; color:#fff; font-size:16px; font-weight:700; }
+.disclaimer-section { padding:44px 26px 78px; border-bottom:12px solid #2f211c; background:#fcf5e9; }
+.disclaimer-card { padding:22px 22px 20px; border-radius:21px; background:linear-gradient(135deg,#462b22,#3d251e); color:#fff8ef; text-align:center; }
+.disclaimer-card h2 { font:800 25px/1 var(--font-display); text-transform:uppercase; }
+.disclaimer-card p { margin-top:21px; font-size:17px; font-weight:600; line-height:1.25; }
+.disclaimer-card p span { color:#ffd28d; }
+.disclaimer-card b { display:flex; margin-top:22px; align-items:center; justify-content:center; gap:11px; font-size:16px; }
+.disclaimer-card i { color:#ffd28d; font:400 45px/1 Arial,sans-serif; transform:rotate(-12deg); }
+.legal-footer { padding:28px 26px 32px; background:#2f2521; color:#fff; text-align:left; }
+.legal-footer h2 { font-size:18px; font-weight:500; }
+.legal-footer address { margin-top:27px; font-size:13px; font-style:normal; line-height:1.55; }
+.legal-footer address a { color:#ffd28d; }
+.legal-footer nav { margin-top:28px; display:flex; flex-direction:column; align-items:flex-start; }
+.legal-footer nav a { color:#fff; font-size:13px; line-height:1.55; text-decoration:underline; text-underline-offset:2px; }
+.legal-note { margin-top:40px; color:#9c9693; font-size:15px; font-style:italic; line-height:1.25; }

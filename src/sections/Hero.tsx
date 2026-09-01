@@ -1,6 +1,7 @@
 import glow from '../assets/1 БЛОК/Ellipse 2536.png'
 import badgeBg from '../assets/1 БЛОК/Rectangle 240649020.png'
-import heroPhoto from '../assets/1 БЛОК/image_150-removebg 1.png'
+import heroPhoto from '../assets/Новая папка 2/1 БЛОК/image_150-removebg 1.svg'
+import userIcon from '../assets/Новая папка/1 БЛОК/1 БЛОК/basil_user-solid.svg'
 
 export default function Hero() {
   return (
@@ -42,18 +43,15 @@ export default function Hero() {
           className="pointer-events-none absolute bottom-[-7%] left-1/2 z-20 h-[95px] w-[112%] max-w-none -translate-x-1/2 select-none object-fill"
         />
         {/* Бейдж-плашка */}
-        <div className="absolute left-[56%] top-0 z-0 flex w-[86px] -translate-x-1/2 flex-col items-center overflow-hidden rounded-2xl pb-4 pt-8">
+        <div className="absolute left-[58%] top-0 z-0 flex h-[157px] w-[73px] -translate-x-1/2 flex-col items-center pt-8">
           <img
             src={badgeBg}
             alt=""
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full rounded-2xl object-cover"
           />
           {/* Иконка-человечек */}
-          <span className="absolute -top-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#8a3d1e]">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-              <circle cx="12" cy="8" r="4" />
-              <path d="M4 21c0-4 4-6 8-6s8 2 8 6" />
-            </svg>
+          <span className="absolute -top-3 z-20 flex h-7 w-7 items-center justify-center rounded-[7px] bg-white">
+            <img src={userIcon} alt="" className="h-[14px] w-[14px]" />
           </span>
           <div className="relative z-10 text-center text-cream">
             <p className="text-[8px] font-medium tracking-wide">БОЛЕЕ</p>

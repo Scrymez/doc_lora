@@ -1,7 +1,7 @@
 export default function Mission() {
   return (
-    <section className="bg-[#fcf5e9] px-5 pt-4 pb-12">
-      <p className="text-center font-display text-[16px] font-extrabold uppercase leading-[22px] text-brown">
+    <section className="bg-[#fcf5e9] px-5 pt-5 pb-8">
+      <p className="text-center font-display text-[12px] font-extrabold uppercase leading-[16px] text-brown">
         Вы можете{' '}
         <span className="text-accent">
           влиять на здоровье своего ребёнка каждый день.
@@ -10,13 +10,13 @@ export default function Mission() {
         добиться <span className="text-accent">устойчивого результата.</span>
       </p>
 
-      <div className="mt-4 flex items-center justify-center gap-2">
-        <span className="text-[15px] font-semibold text-brown">
+      <div className="mt-3 flex items-center justify-center gap-2">
+        <span className="text-[12px] font-semibold text-brown">
           Ваша доктор Маржанат
         </span>
         <svg
           viewBox="0 0 32 30"
-          className="h-7 w-7 shrink-0"
+          className="h-5 w-5 shrink-0"
           fill="none"
           stroke="#e2551f"
           strokeWidth="2.4"

@@ -58,40 +58,40 @@ export default function WorryTabs() {
   const [open, setOpen] = useState(1)
 
   return (
-    <section className="bg-[#fcf5e9] px-5 pt-4 pb-10">
-      <h2 className="h-display text-[28px] leading-[1.05] text-brown">
+    <section className="bg-[#fcf5e9] px-5 pt-4 pb-6">
+      <h2 className="h-display text-[20px] leading-[1.05] text-brown">
         Что вас <span className="text-accent">тревожит</span> больше всего?
       </h2>
-      <p className="mt-3 text-[16px] leading-snug text-brown-soft">
+      <p className="mt-2 text-[13px] leading-snug text-brown-soft">
         Нажмите на свою тему — покажу, что станет понятно после курса.
       </p>
 
-      <div className="mt-6 flex flex-col gap-2.5">
+      <div className="mt-4 flex flex-col gap-2">
         {items.map((it, i) => {
           const active = i === open
           return (
-            <div key={it.name} className="overflow-hidden rounded-[18px]">
+            <div key={it.name} className="overflow-hidden rounded-[12px]">
               <button
                 type="button"
                 onClick={() => setOpen(active ? -1 : i)}
-                className="flex w-full items-center justify-between bg-white px-5 py-4 text-left"
+                className="flex w-full items-center justify-between bg-white px-4 py-3 text-left"
               >
-                <span className="text-[19px] text-brown">{it.name}</span>
+                <span className="text-[14px] text-brown">{it.name}</span>
                 <Chevron open={active} />
               </button>
 
               {active && (
-                <div className="bg-[#fdf6ea] px-5 pb-5 pt-1">
-                  <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-accent">
+                <div className="border-2 border-accent bg-[#fdf6ea] px-4 pb-4 pt-3">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-accent">
                     {it.eyebrow}
                   </p>
-                  <h3 className="mt-2 text-[16px] font-extrabold uppercase leading-snug text-brown">
+                  <h3 className="mt-1.5 text-[13px] font-extrabold uppercase leading-snug text-brown">
                     {it.title}
                   </h3>
-                  <p className="mt-3 text-[15px] leading-7 text-brown-soft">
+                  <p className="mt-2 text-[11px] leading-[1.45] text-brown-soft">
                     {it.body}
                   </p>
-                  <span className="mt-4 inline-block rounded-[12px] bg-[#a84322] px-5 py-3 text-[15px] text-white">
+                  <span className="mt-3 inline-block rounded-[10px] bg-[#c87654] px-4 py-2 text-[11px] text-white">
                     Модуль «{it.name}»
                   </span>
                 </div>
