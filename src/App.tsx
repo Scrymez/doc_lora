@@ -2,9 +2,11 @@ import About from './sections/About'
 import Benefits from './sections/Benefits'
 import CourseValue from './sections/CourseValue'
 import Hero from './sections/Hero'
+import Mission from './sections/Mission'
 import NoSymptoms from './sections/NoSymptoms'
 import Symptoms from './sections/Symptoms'
 import Waiting from './sections/Waiting'
+import WorryTabs from './sections/WorryTabs'
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Benefits />
       </div>
       <About />
+      <WorryTabs />
+      <Mission />
     </main>
   )
 }
