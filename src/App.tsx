@@ -4,6 +4,7 @@ import CourseValue from './sections/CourseValue'
 import Hero from './sections/Hero'
 import Mission from './sections/Mission'
 import NoSymptoms from './sections/NoSymptoms'
+import Reviews from './sections/Reviews'
 import Symptoms from './sections/Symptoms'
 import Waiting from './sections/Waiting'
 import WorryTabs from './sections/WorryTabs'
@@ -23,6 +24,7 @@ function App() {
       <About />
       <WorryTabs />
       <Mission />
+      <Reviews />
     </main>
   )
 }
