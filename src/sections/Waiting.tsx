@@ -62,14 +62,14 @@ const items = [
 
 export default function Waiting() {
   return (
-    <section className="px-5 pt-9 pb-10">
+    <section className="waiting-section px-5 pt-9 pb-10">
       <h2 className="h-display max-w-[287px] text-[16px] leading-[20px] text-brown">
         Если просто <span className="text-accent">ждать,</span>
         <br />
         <span className="text-accent">что всё пройдёт с возрастом:</span>
       </h2>
 
-      <div className="mt-[18px] flex flex-col gap-[22px]">
+      <div className="waiting-grid mt-[18px] flex flex-col gap-[22px]">
         {items.map((it, i) => (
           <div key={i}>
             <h3 className="text-[14px] font-semibold uppercase leading-[16px] text-brown">

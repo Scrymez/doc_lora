@@ -58,7 +58,7 @@ export default function WorryTabs() {
   const [open, setOpen] = useState(1)
 
   return (
-    <section className="bg-[#fcf5e9] px-5 pt-4 pb-6">
+    <section className="worry-section bg-[#fcf5e9] px-5 pt-4 pb-6">
       <h2 className="h-display text-[20px] leading-[1.05] text-brown">
         Что вас <span className="text-accent">тревожит</span> больше всего?
       </h2>
@@ -66,11 +66,11 @@ export default function WorryTabs() {
         Нажмите на свою тему — покажу, что станет понятно после курса.
       </p>
 
-      <div className="mt-4 flex flex-col gap-2">
+      <div className="worry-list mt-4 flex flex-col gap-2">
         {items.map((it, i) => {
           const active = i === open
           return (
-            <div key={it.name} className="overflow-hidden rounded-[12px]">
+            <div key={it.name} className={`worry-item overflow-hidden rounded-[12px] ${active ? 'is-active' : ''}`}>
               <button
                 type="button"
                 onClick={() => setOpen(active ? -1 : i)}

@@ -1,6 +1,6 @@
 export default function Mission() {
   return (
-    <section className="bg-[#fcf5e9] px-5 pt-5 pb-8">
+    <section className="mission-section bg-[#fcf5e9] px-5 pt-5 pb-8">
       <p className="text-center font-display text-[12px] font-extrabold uppercase leading-[16px] text-brown">
         Вы можете{' '}
         <span className="text-accent">

@@ -38,10 +38,10 @@ const items: ReactNode[] = [
 
 export default function CourseValue() {
   return (
-    <section className="px-5 py-8">
-      <div className="relative rounded-[20px] bg-[#42281e] px-5 pt-8 pb-7">
+    <section className="course-value-section px-5 py-8">
+      <div className="course-value-card relative rounded-[20px] bg-[#42281e] px-5 pt-8 pb-7">
         {/* Звёздочка */}
-        <span className="absolute -top-7 right-6 flex h-12 w-12 items-center justify-center rounded-full bg-[#ffd28f]">
+        <span className="course-star absolute -top-7 right-6 flex h-12 w-12 items-center justify-center rounded-full bg-[#ffd28f]">
           <img src={starIcon} alt="" className="h-[29px] w-[27px]" />
         </span>
 
@@ -49,9 +49,9 @@ export default function CourseValue() {
           <Gold>Что вы получите на курсе:</Gold>
         </h2>
 
-        <div className="mt-6 flex flex-col gap-5">
+        <div className="course-value-grid mt-6 flex flex-col gap-5">
           {items.map((text, i) => (
-            <div key={i}>
+            <div key={i} className="course-value-item">
               <div className="font-display text-[22px] font-extrabold leading-none">
                 <Gold>{i + 1}</Gold>
               </div>

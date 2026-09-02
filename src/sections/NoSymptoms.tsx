@@ -1,6 +1,6 @@
 export default function NoSymptoms() {
   return (
-    <section className="bg-[#a84322] px-6 py-8 text-center">
+    <section className="no-symptoms-section bg-[#a84322] px-6 py-8 text-center">
       <p className="mx-auto max-w-[312px] font-display text-[16px] font-bold uppercase leading-[22px] text-white">
         Если сейчас у вас нет этих симптомов, вы будете знать, что делать, когда
         они появятся

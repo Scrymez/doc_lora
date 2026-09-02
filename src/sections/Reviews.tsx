@@ -101,7 +101,7 @@ export default function Reviews() {
   }
 
   return (
-    <section className="bg-[#fcf5e9] pb-7 pt-3">
+    <section className="reviews-section bg-[#fcf5e9] pb-7 pt-3">
       <h2 className="h-display px-5 text-[20px] leading-[1.05] text-brown">
         Что говорят <span className="text-accent">мамы</span>,
         <br />
@@ -109,7 +109,7 @@ export default function Reviews() {
       </h2>
 
       {/* Шапка-пилл */}
-      <div className="mx-5 mt-4 flex items-center justify-between rounded-full bg-white px-3 py-2">
+      <div className="reviews-toolbar mx-5 mt-4 flex items-center justify-between rounded-full bg-white px-3 py-2">
         <span className="flex items-center gap-2 text-[11px] text-brown">
           <span className="text-accent">✈</span> Отзывы из Telegram
         </span>
@@ -122,12 +122,12 @@ export default function Reviews() {
       <div
         ref={ref}
         onScroll={onScroll}
-        className="mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none]"
+        className="reviews-track mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none]"
       >
         {reviews.map((r, i) => (
           <article
             key={i}
-            className="h-[430px] w-[285px] shrink-0 snap-center rounded-[18px] bg-[#efe5da] p-3"
+            className="review-card h-[430px] w-[285px] shrink-0 snap-center rounded-[18px] bg-[#efe5da] p-3"
           >
             <div className="flex h-full flex-col overflow-hidden rounded-[16px] bg-white p-4">
               <p className={`text-[12px] font-bold ${r.name.includes('Nataliya') ? 'text-[#2d9b50]' : r.name.includes('Kristina') || r.name.includes('Елена') ? 'text-[#e65472]' : 'text-[#2997c7]'}`}>{r.name}</p>
@@ -139,7 +139,7 @@ export default function Reviews() {
       </div>
 
       {/* Точки-пагинация */}
-      <div className="mt-3 flex justify-center gap-2">
+      <div className="reviews-dots mt-3 flex justify-center gap-2">
         {reviews.map((_, i) => (
           <span
             key={i}
@@ -151,7 +151,7 @@ export default function Reviews() {
       </div>
 
       {/* Что решило */}
-      <div className="mx-5 mt-3 rounded-[16px] bg-[#42281e] p-4">
+      <div className="reviews-outcome mx-5 mt-3 rounded-[16px] bg-[#42281e] p-4">
         <p className="text-[10px] font-extrabold uppercase tracking-wide text-[#f0c88a]">
           Что решило
         </p>

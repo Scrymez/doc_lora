@@ -5,7 +5,8 @@ import userIcon from '../assets/Новая папка/1 БЛОК/1 БЛОК/basi
 
 export default function Hero() {
   return (
-    <section className="overflow-hidden px-6 pt-8 pb-6 text-center">
+    <section className="hero-section overflow-hidden px-6 pt-8 pb-6 text-center">
+      <div className="hero-copy">
       <p className="text-[11px] font-normal uppercase tracking-wide text-brown/50">
         Авторский онлайн-курс «Жизнь без соплей»
       </p>
@@ -33,9 +34,10 @@ export default function Hero() {
       >
         Хочу на курс
       </a>
+      </div>
 
       {/* Фото + бейдж */}
-      <div className="relative mt-8 flex justify-center">
+      <div className="hero-visual relative mt-8 flex justify-center">
         {/* Тёплое свечение-подложка */}
         <img
           src={glow}

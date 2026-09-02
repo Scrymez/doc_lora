@@ -9,9 +9,9 @@ const avatars = [av1, av2, av3, av4, av5]
 
 export default function About() {
   return (
-    <section className="bg-[#fcf5e9] pb-10">
+    <section className="about-section bg-[#fcf5e9] pb-10">
       {/* Фото на всю ширину + бейдж 8+, скругление низа 20 */}
-      <div className="relative overflow-hidden rounded-b-[20px] bg-gradient-to-b from-[#fcf5e9] to-[#f6ddb8]">
+      <div className="about-photo relative overflow-hidden rounded-b-[20px] bg-gradient-to-b from-[#fcf5e9] to-[#f6ddb8]">
         <img
           src={photo}
           alt="Омарова Маржана — врач"
@@ -33,7 +33,7 @@ export default function About() {
         </div>
       </div>
 
-      <div className="px-5 pt-5">
+      <div className="about-copy px-5 pt-5">
         <h3 className="h-display text-[22px] leading-[1.1] text-brown">
           Я больше <span className="text-accent">8 лет</span> помогаю детям{' '}
           <span className="text-accent">дышать свободно</span>

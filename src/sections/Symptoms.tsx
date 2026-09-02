@@ -62,14 +62,14 @@ const cards: Card[] = [
 
 export default function Symptoms() {
   return (
-    <section className="px-5 pt-6 pb-10">
+    <section className="symptoms-section px-5 pt-6 pb-10">
       <h2 className="h-display text-[16px] leading-[20px] text-brown">
         <span className="text-accent">С какими симптомами</span>
         <br />
         мы разбираемся на курсе:
       </h2>
 
-      <div className="mt-5 flex flex-col gap-[10px]">
+      <div className="symptoms-grid mt-5 flex flex-col gap-[10px]">
         {cards.map((card) => (
           <div
             key={card.title}

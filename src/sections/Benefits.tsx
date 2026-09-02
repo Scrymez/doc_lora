@@ -42,12 +42,12 @@ function Arrow() {
 
 export default function Benefits() {
   return (
-    <section className="px-5 pt-2 pb-10">
+    <section className="benefits-section px-5 pt-2 pb-10">
       <h2 className="font-display text-[16px] font-extrabold uppercase leading-[20px] text-brown">
         Благодаря курсу вы:
       </h2>
 
-      <div className="mt-5 flex flex-col gap-5">
+      <div className="benefits-grid mt-5 flex flex-col gap-5">
         {items.map((text, i) => (
           <div key={i} className="flex gap-2.5">
             <Arrow />
