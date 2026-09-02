@@ -46,7 +46,7 @@ export default function CourseValue() {
         </span>
 
         <h2 className="font-display text-[18px] font-extrabold uppercase leading-[20px]">
-          <Gold>Что вы получите на курсе:</Gold>
+          <Gold>Что вы получите на курсе</Gold>
         </h2>
 
         <div className="course-value-grid mt-6 flex flex-col gap-5">

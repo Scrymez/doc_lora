@@ -30,7 +30,7 @@ export default function Hero() {
 
       <a
         href="#zapis"
-        className="mt-6 block w-full rounded-2xl bg-[linear-gradient(122deg,#f34d05_1.6%,#ec734b_52%,#f34d05_109%)] py-4 text-[16px] font-semibold uppercase tracking-wide text-white shadow-[inset_0_0_39.33px_#FFFFFF,0_10px_20px_-6px_rgba(243,77,5,0.35)] transition active:scale-[0.99]"
+        className="mt-6 block w-full rounded-2xl bg-[linear-gradient(122deg,#f34d05_1.6%,#ec734b_52%,#f34d05_109%)] py-4 text-[16px] font-semibold uppercase tracking-wide text-white shadow-[inset_0_2px_10px_rgba(255,255,255,0.4),0_18px_38px_-10px_rgba(240,80,25,0.55)] transition active:scale-[0.99]"
       >
         Хочу на курс
       </a>
@@ -42,7 +42,7 @@ export default function Hero() {
         <img
           src={glow}
           alt=""
-          className="pointer-events-none absolute bottom-[-7%] left-1/2 z-20 h-[95px] w-[112%] max-w-none -translate-x-1/2 select-none object-fill"
+          className="pointer-events-none absolute bottom-[-7%] left-1/2 z-20 h-[95px] w-[112%] max-w-none -translate-x-1/2 translate-y-[9px] select-none object-fill"
         />
         {/* Бейдж-плашка */}
         <div className="absolute left-[58%] top-0 z-0 flex h-[157px] w-[73px] -translate-x-1/2 flex-col items-center pt-8">

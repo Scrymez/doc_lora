@@ -88,6 +88,12 @@ const reviews: Review[] = [
   },
 ]
 
+function nameColor(name: string) {
+  if (name.includes('Nataliya')) return 'text-[#2d9b50]'
+  if (name.includes('Kristina') || name.includes('Елена')) return 'text-[#e65472]'
+  return 'text-[#2997c7]'
+}
+
 export default function Reviews() {
   const [active, setActive] = useState(0)
   const ref = useRef<HTMLDivElement>(null)
@@ -105,41 +111,40 @@ export default function Reviews() {
       <h2 className="h-display px-5 text-[20px] leading-[1.05] text-brown">
         Что говорят <span className="text-accent">мамы</span>,
         <br />
-        <span className="text-accent">которые прошли курс:</span>
+        <span className="text-accent">которые уже прошли курс:</span>
       </h2>
-
-      {/* Шапка-пилл */}
-      <div className="reviews-toolbar mx-5 mt-4 flex items-center justify-between rounded-full bg-white px-3 py-2">
-        <span className="flex items-center gap-2 text-[11px] text-brown">
-          <span className="text-accent">✈</span> Отзывы из Telegram
-        </span>
-        <span className="rounded-full bg-[#eaf6ea] px-2 py-1 text-[10px] font-medium text-green-700">
-          ✓ реальные
-        </span>
-      </div>
 
       {/* Карусель */}
       <div
         ref={ref}
         onScroll={onScroll}
-        className="reviews-track mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none]"
+        className="reviews-track mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none]"
       >
         {reviews.map((r, i) => (
-          <article
-            key={i}
-            className="review-card h-[430px] w-[285px] shrink-0 snap-center rounded-[18px] bg-[#efe5da] p-3"
-          >
-            <div className="flex h-full flex-col overflow-hidden rounded-[16px] bg-white p-4">
-              <p className={`text-[12px] font-bold ${r.name.includes('Nataliya') ? 'text-[#2d9b50]' : r.name.includes('Kristina') || r.name.includes('Елена') ? 'text-[#e65472]' : 'text-[#2997c7]'}`}>{r.name}</p>
-              <p className="mt-2 whitespace-pre-line text-[11px] leading-[1.42] text-[#202020]">{r.text}</p>
-              <p className="mt-auto text-right text-[9px] text-[#9aa0a6]">{r.time}</p>
+          <article key={i} className="review-card shrink-0 snap-center">
+            <div className="review-tg">
+              <div className="review-tg-head">
+                <span className="review-tg-src">
+                  <span aria-hidden>✈</span> Отзыв из Telegram
+                </span>
+                <span className="review-tg-real">✓ реальный</span>
+              </div>
+              <div className="review-bubble">
+                <p className={`review-name ${nameColor(r.name)}`}>{r.name}</p>
+                <p className="review-text">{r.text}</p>
+                <p className="review-time">{r.time}</p>
+              </div>
+            </div>
+            <div className="review-solved">
+              <p className="review-solved-t">Что решило</p>
+              <p className="review-solved-b">{r.outcome}</p>
             </div>
           </article>
         ))}
       </div>
 
       {/* Точки-пагинация */}
-      <div className="reviews-dots mt-3 flex justify-center gap-2">
+      <div className="reviews-dots mt-4 flex justify-center gap-2">
         {reviews.map((_, i) => (
           <span
             key={i}
@@ -148,16 +153,6 @@ export default function Reviews() {
             }`}
           />
         ))}
-      </div>
-
-      {/* Что решило */}
-      <div className="reviews-outcome mx-5 mt-3 rounded-[16px] bg-[#42281e] p-4">
-        <p className="text-[10px] font-extrabold uppercase tracking-wide text-[#f0c88a]">
-          Что решило
-        </p>
-        <p className="mt-1.5 text-[12px] leading-snug text-[#fdf4e4]">
-          {reviews[active].outcome}
-        </p>
       </div>
     </section>
   )

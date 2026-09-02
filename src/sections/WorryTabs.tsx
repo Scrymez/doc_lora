@@ -37,11 +37,11 @@ const items: Item[] = [
   },
 ]
 
-function Chevron({ open }: { open: boolean }) {
+function ArrowR() {
   return (
     <svg
       viewBox="0 0 20 20"
-      className={`h-5 w-5 shrink-0 text-brown transition-transform ${open ? 'rotate-180' : ''}`}
+      className="h-5 w-5 shrink-0"
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
@@ -49,13 +49,14 @@ function Chevron({ open }: { open: boolean }) {
       strokeLinejoin="round"
       aria-hidden
     >
-      <path d="M5 8 L10 13 L15 8" />
+      <path d="M4 10 H15" />
+      <path d="M11 6 L15 10 L11 14" />
     </svg>
   )
 }
 
 export default function WorryTabs() {
-  const [open, setOpen] = useState(1)
+  const [open, setOpen] = useState(0)
 
   return (
     <section className="worry-section bg-[#fcf5e9] px-5 pt-4 pb-6">
@@ -74,10 +75,15 @@ export default function WorryTabs() {
               <button
                 type="button"
                 onClick={() => setOpen(active ? -1 : i)}
-                className="flex w-full items-center justify-between bg-white px-4 py-3 text-left"
+                aria-expanded={active}
+                className={`worry-tab flex w-full items-center justify-between px-4 py-3.5 text-left transition ${
+                  active
+                    ? 'bg-[#a84322] text-white'
+                    : 'border border-[#eaddca] bg-white text-brown'
+                }`}
               >
-                <span className="text-[14px] text-brown">{it.name}</span>
-                <Chevron open={active} />
+                <span className="text-[14px]">{it.name}</span>
+                <ArrowR />
               </button>
 
               {active && (

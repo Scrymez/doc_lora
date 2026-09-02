@@ -111,8 +111,12 @@ export default function Symptoms() {
 
         {/* Тёмная карточка-итог */}
         <div className="rounded-[20px] bg-[#482f26] p-5">
-          <h3 className="bg-gradient-to-r from-[#ffefd4] to-[#ffc26f] bg-clip-text text-[16px] font-extrabold uppercase leading-[22px] text-transparent">
-            Узнали хотя бы пару пунктов?
+          <h3 className="text-[16px] font-extrabold uppercase leading-[22px] text-white">
+            Узнали{' '}
+            <span className="bg-gradient-to-r from-[#ffefd4] to-[#ffc26f] bg-clip-text text-transparent">
+              хотя бы пару
+            </span>{' '}
+            пунктов?
           </h3>
           <p className="mt-2 text-[12px] leading-[14px] text-[#fff1f1]">
             Значит, курс собран ровно про вашу ситуацию. Каждый из этих модулей —

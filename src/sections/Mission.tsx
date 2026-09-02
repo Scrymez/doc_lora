@@ -2,12 +2,14 @@ export default function Mission() {
   return (
     <section className="mission-section bg-[#fcf5e9] px-5 pt-5 pb-8">
       <p className="text-center font-display text-[12px] font-extrabold uppercase leading-[16px] text-brown">
-        Вы можете{' '}
+        Только мы ответственны за здоровье своих детей — а значит, можем
+        выбирать в его пользу каждый день.{' '}
         <span className="text-accent">
-          влиять на здоровье своего ребёнка каждый день.
+          Моя задача — дать вам инструменты ежедневного влияния,
         </span>{' '}
-        Я покажу, как разорвать круг постоянных симптомов и заболеваний и
-        добиться <span className="text-accent">устойчивого результата.</span>
+        показать, как выйти из замкнутого круга симптомов и заболеваний и как
+        сделать так, чтобы{' '}
+        <span className="text-accent">результат был устойчивым.</span>
       </p>
 
       <div className="mt-3 flex items-center justify-center gap-2">

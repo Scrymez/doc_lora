@@ -34,9 +34,13 @@ export default function About() {
       </div>
 
       <div className="about-copy px-5 pt-5">
-        <h3 className="h-display text-[22px] leading-[1.1] text-brown">
-          Я больше <span className="text-accent">8 лет</span> помогаю детям{' '}
-          <span className="text-accent">дышать свободно</span>
+        <h3 className="about-title h-display text-[22px] leading-[1.1] text-brown">
+          <span className="about-title-main">
+            Я больше <span className="text-accent">8 лет</span>
+          </span>{' '}
+          <span className="about-title-sub">
+            помогаю детям <span className="text-accent">дышать свободно</span>
+          </span>
         </h3>
 
         {/* Соцпруф — терракот-пилл + фото-аватары */}
@@ -68,9 +72,46 @@ export default function About() {
           найти и решить её без хирургического вмешательства.
         </p>
 
+        {/* Цитата */}
+        <div className="about-quote mt-5 rounded-[16px] bg-[#ece0cd] px-5 py-4 text-left text-[14px] italic leading-relaxed text-brown-soft">
+          <b className="font-semibold text-brown">Я за баланс, а не за крайности.</b>{' '}
+          Понять причину — и решить спокойно.
+        </div>
+
+        {/* Кнопки: Забрать курс + Перейти в блог */}
+        <div className="about-actions mt-5 flex flex-col gap-3">
+          <a
+            href="#zapis"
+            className="flex items-center justify-center rounded-full bg-[linear-gradient(122deg,#f34d05_1.6%,#ec734b_52%,#f34d05_109%)] px-6 py-4 text-[13px] font-bold uppercase tracking-wide text-white shadow-[0_10px_20px_-6px_rgba(243,77,5,0.35)] transition active:scale-[0.99]"
+          >
+            Забрать курс
+          </a>
+          <a
+            href="#blog"
+            className="flex items-center justify-between gap-3 rounded-full border-2 border-accent px-6 py-3 text-[14px] font-semibold text-accent transition active:scale-[0.99]"
+          >
+            <span className="flex-1 text-center">Перейти в блог</span>
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 border-accent">
+              <svg
+                viewBox="0 0 20 20"
+                className="h-3.5 w-3.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
+                <path d="M4 10 H14" />
+                <path d="M10 6 L14 10 L10 14" />
+              </svg>
+            </span>
+          </a>
+        </div>
+
         <a
           href="#diplomas"
-          className="mt-6 block w-full rounded-full border-2 border-accent py-4 text-center text-[13px] font-bold uppercase tracking-wide text-accent transition active:scale-[0.99]"
+          className="mt-4 block w-full rounded-full border-2 border-accent py-4 text-center text-[13px] font-bold uppercase tracking-wide text-accent transition active:scale-[0.99]"
         >
           Дипломы и сертификаты доктора Маржанат
         </a>
