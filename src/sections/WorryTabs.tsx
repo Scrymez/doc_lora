@@ -59,7 +59,7 @@ export default function WorryTabs() {
   const [open, setOpen] = useState(0)
 
   return (
-    <section className="worry-section bg-[linear-gradient(180deg,#f7e1c2_0%,#fcf5e9_50%,#f7e1c2_100%)] px-5 pt-4 pb-6">
+    <section id="program" className="worry-section bg-[linear-gradient(180deg,#f7e1c2_0%,#fcf5e9_50%,#f7e1c2_100%)] px-5 pt-4 pb-6">
       <h2 className="h-display text-[20px] leading-[1.05] text-brown">
         Что вас <span className="text-accent">тревожит</span> больше всего?
       </h2>

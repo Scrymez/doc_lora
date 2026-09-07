@@ -10,7 +10,7 @@ const avatars = [av1, av2, av3, av4, av5]
 
 export default function About() {
   return (
-    <section className="about-section bg-[#fcf5e9] pb-10">
+    <section id="about" className="about-section bg-[#fcf5e9] pb-10">
       {/* Фото на всю ширину + бейдж 8+, скругление низа 20 */}
       <div className="about-photo relative overflow-hidden rounded-b-[20px] bg-gradient-to-b from-[#fcf5e9] to-[#f6ddb8]">
         <img

@@ -23,27 +23,68 @@ function App() {
   useEffect(() => {
     const shell = document.querySelector<HTMLElement>('.site-shell')
     if (!shell) return
+    // Chrome/Safari/Edge/Opera/Yandex поддерживают CSS zoom. Старый Firefox — нет,
+    // для него ужимаем тем же коэффициентом через transform: scale + компенсацию высоты.
+    const supportsZoom =
+      typeof CSS !== 'undefined' && CSS.supports && CSS.supports('zoom', '1')
+
+    const root = shell.parentElement
+    const reset = () => {
+      shell.style.width = ''
+      shell.style.maxWidth = ''
+      shell.style.zoom = ''
+      shell.style.transform = ''
+      shell.style.transformOrigin = ''
+      if (root) {
+        root.style.height = ''
+        root.style.overflow = ''
+      }
+    }
+
     const apply = () => {
       const w = window.innerWidth
       if (w >= 768 && w < DESIGN_WIDTH) {
+        const k = w / DESIGN_WIDTH
         shell.style.width = `${DESIGN_WIDTH}px`
         shell.style.maxWidth = 'none'
-        shell.style.zoom = String(w / DESIGN_WIDTH)
+        if (supportsZoom) {
+          shell.style.transform = ''
+          shell.style.transformOrigin = ''
+          if (root) {
+            root.style.height = ''
+            root.style.overflow = ''
+          }
+          shell.style.zoom = String(k)
+        } else {
+          shell.style.zoom = ''
+          shell.style.transformOrigin = 'top left'
+          shell.style.transform = `scale(${k})`
+          // transform не меняет layout-высоту — задаём родителю масштабированную
+          // высоту, чтобы длина скролла была верной и не было пустоты снизу.
+          const naturalH = shell.offsetHeight
+          if (root) {
+            root.style.height = `${Math.round(naturalH * k)}px`
+            root.style.overflow = 'hidden'
+          }
+        }
       } else {
-        shell.style.width = ''
-        shell.style.maxWidth = ''
-        shell.style.zoom = ''
+        reset()
       }
     }
     apply()
     window.addEventListener('resize', apply)
-    return () => window.removeEventListener('resize', apply)
+    return () => {
+      window.removeEventListener('resize', apply)
+      reset()
+    }
   }, [])
 
   // Плавный (инерционный) скролл через Lenis + плавные переходы по якорям + parallax.
-  // Уважаем prefers-reduced-motion — там оставляем нативный скролл и статичный parallax.
+  // ТОЛЬКО десктоп (точный указатель). На тач-устройствах — нативный скролл, иначе
+  // Lenis мешает тач-прокрутке. Якоря на мобилке едут нативным smooth (scroll-behavior).
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
     const lenis = new Lenis({ duration: 1.1, smoothWheel: true })
     let rafId = 0
     const raf = (time: number) => {
@@ -121,6 +162,56 @@ function App() {
     }
     document.addEventListener('click', onClick)
     return () => document.removeEventListener('click', onClick)
+  }, [])
+
+  // Магнитные CTA — кнопка слегка тянется к курсору. Только десктоп (есть точный
+  // курсор и ширина >= 1024), уважаем reduced-motion.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const canMagnet = () =>
+      window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+      window.innerWidth >= 1024
+
+    const cleanups: Array<() => void> = []
+    const bind = () => {
+      // снять прежние привязки при ресайзе
+      cleanups.forEach((fn) => fn())
+      cleanups.length = 0
+      const active = canMagnet()
+      const btns = [...document.querySelectorAll<HTMLElement>('.btn-magic')]
+      for (const btn of btns) {
+        if (!active) {
+          btn.style.removeProperty('--mx')
+          btn.style.removeProperty('--my')
+          continue
+        }
+        const strength = 0.3
+        const max = 14
+        const onMove = (e: MouseEvent) => {
+          const r = btn.getBoundingClientRect()
+          const dx = (e.clientX - (r.left + r.width / 2)) * strength
+          const dy = (e.clientY - (r.top + r.height / 2)) * strength
+          btn.style.setProperty('--mx', `${Math.max(-max, Math.min(max, dx)).toFixed(1)}px`)
+          btn.style.setProperty('--my', `${Math.max(-max, Math.min(max, dy)).toFixed(1)}px`)
+        }
+        const onLeave = () => {
+          btn.style.setProperty('--mx', '0px')
+          btn.style.setProperty('--my', '0px')
+        }
+        btn.addEventListener('mousemove', onMove)
+        btn.addEventListener('mouseleave', onLeave)
+        cleanups.push(() => {
+          btn.removeEventListener('mousemove', onMove)
+          btn.removeEventListener('mouseleave', onLeave)
+        })
+      }
+    }
+    bind()
+    window.addEventListener('resize', bind)
+    return () => {
+      window.removeEventListener('resize', bind)
+      cleanups.forEach((fn) => fn())
+    }
   }, [])
 
   // Reveal секций при входе во вьюпорт.

@@ -53,8 +53,10 @@ html {
     position: relative;
     overflow: hidden;
     isolation: isolate;
+    transform: translate3d(var(--mx, 0px), calc(var(--my, 0px) + var(--lift, 0px)), 0)
+      scale(var(--s, 1));
     transition:
-      transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+      transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
       box-shadow 0.6s ease,
       filter 0.6s ease;
   }
@@ -75,7 +77,8 @@ html {
   }
   .btn-magic:hover,
   .btn-magic:focus-visible {
-    transform: translateY(-3px) scale(1.02);
+    --lift: -3px;
+    --s: 1.02;
     box-shadow:
       0 12px 30px rgba(243, 77, 5, 0.32),
       0 0 26px rgba(255, 196, 111, 0.5);
@@ -166,7 +169,7 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
 .disclaimer-card { position:relative; padding:22px 22px 20px; border-radius:30px; background:#42281e; color:#fff1f1; text-align:center; }
 .disclaimer-card h2 { font:800 25px/1 var(--font-display); text-transform:uppercase; color:#fff1f1; }
 .disclaimer-card p { margin-top:21px; font-family:var(--font-sans); font-weight:400; font-size:17px; line-height:1.3; }
-.disclaimer-card p span { background:linear-gradient(92deg,#ffefd4,#ffc26f); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.disclaimer-card p span { background:linear-gradient(92deg,#ffefd4,#ffc26f); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; }
 .disclaimer-sign { display:flex; align-items:center; justify-content:center; gap:14px; margin-top:30px; font-family:var(--font-sans); font-size:16px; color:#fff1f1; }
 .disclaimer-heart { flex:none; width:42px; height:43px; }
 .legal-footer { padding:44px 26px 40px; background:#2e2621; color:#fff; text-align:left; }
@@ -182,7 +185,24 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
 .legal-links { margin-top:32px; display:flex; flex-direction:column; gap:14px; padding-top:28px; border-top:1px solid rgba(255,255,255,.12); }
 .legal-links a { color:rgba(255,255,255,0.5); font-size:13px; line-height:1.4; text-decoration:underline; text-underline-offset:2px; }
 .legal-note { margin-top:28px; padding-top:28px; border-top:1px solid rgba(255,255,255,.12); color:rgba(255,255,255,0.5); font-size:14px; font-style:italic; line-height:1.5; }
-.legal-note span { background:linear-gradient(92deg,#ffefd4,#ffc26f); -webkit-background-clip:text; background-clip:text; color:transparent; font-style:normal; }
+.legal-note span { background:linear-gradient(92deg,#ffefd4,#ffc26f); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; font-style:normal; }
+/* Скрытие скроллбара карусели во всех браузерах (FF / IE / WebKit) */
+.reviews-track { scrollbar-width: none; -ms-overflow-style: none; }
+.reviews-track::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+/* Тонкий фирменный скролл внутри текста отзыва (все браузеры + мобилка) */
+.review-text {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(66, 40, 30, 0.35) transparent;
+}
+.review-text::-webkit-scrollbar { width: 5px; }
+.review-text::-webkit-scrollbar-track { background: transparent; }
+.review-text::-webkit-scrollbar-thumb {
+  background: rgba(66, 40, 30, 0.3);
+  border-radius: 999px;
+}
+.review-text::-webkit-scrollbar-thumb:hover { background: rgba(66, 40, 30, 0.5); }
+
 /* Отзывы — карточка Telegram (зелёная рамка) + свой блок «Что решило» */
 .review-card { display:flex; width:285px; flex-direction:column; border-radius:20px; background:#fff; padding:12px; }
 .review-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; padding:0 4px; }
@@ -339,12 +359,12 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
   .price-card .price-lead { grid-column:1; grid-row:1; }
   .price-card .price-lead > p { display:inline-block; margin:0 0 23px; padding:13px 26px; border-radius:20px; font-size:18px; }
   .price-heading { position:relative; display:flex; flex-direction:column; justify-content:center; min-height:183px; margin:0; border-radius:50px; background:rgba(255,241,220,0.05); padding:0 40px; }
-  .price-heading strong { font-size:40px; line-height:1.14; white-space:nowrap; background:linear-gradient(90deg,#ffefd4,#ffc26f); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .price-heading strong { font-size:40px; line-height:1.14; white-space:nowrap; background:linear-gradient(90deg,#ffefd4,#ffc26f); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; }
   .price-number { grid-column:2; grid-row:1; flex-direction:column; align-items:stretch; justify-content:flex-end; gap:10px; margin:0; padding:0; border-top:0; }
   .price-label { flex-basis:auto; margin-right:8px; text-align:right; font-size:20px; color:rgba(210,240,210,0.7); }
   .price-value { position:relative; flex-direction:column; align-items:flex-start; justify-content:center; min-height:183px; gap:4px; border-radius:50px; background:rgba(255,241,220,0.05); padding:0 40px; }
   .price-badge { position:absolute; top:2px; right:-34px; align-self:auto; font-size:20px; }
-  .price-number b { font-size:55px; background:linear-gradient(90deg,#ffefd4,#ffc26f); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .price-number b { font-size:55px; background:linear-gradient(90deg,#ffefd4,#ffc26f); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; }
   .price-number s { font-size:32px; }
   .price-bullets { grid-column:1 / -1; grid-row:2; margin-top:36px; display:grid; grid-template-columns:621px minmax(0,1fr); column-gap:27px; }
   .price-card ul { margin:0; font-size:26px; line-height:40px; }

@@ -49,7 +49,7 @@ export default function Enrollment() {
           <small>ⓘ Курс носит образовательный характер и не заменяет консультацию врача. <u>Подробнее</u></small>
         </div>
 
-        <div className="faq">
+        <div id="faq" className="faq">
           <h2>Частые вопросы</h2>
           {questions.map(([q, a], i) => <div className={`faq-item ${open === i ? 'is-open' : ''}`} key={q}>
             <button onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i}><b>{q}</b><span>{open === i ? '×' : '+'}</span></button>
@@ -80,7 +80,7 @@ export default function Enrollment() {
         <b className="footer-sign">С теплом, Маржанат</b>
         <a href="#zapis" className="footer-button btn-magic">Записаться сейчас</a>
       </footer>
-      <section className="disclaimer-section">
+      <section id="disclaimer" className="disclaimer-section">
         <div className="disclaimer-card">
           <h2>Дисклеймер</h2>
           <p>
@@ -105,7 +105,7 @@ export default function Enrollment() {
           </div>
         </div>
       </section>
-      <footer className="legal-footer">
+      <footer id="contacts" className="legal-footer">
         <div className="legal-brand">
           <h2>Жизнь без соплей</h2>
           <p>Курс от практикующего детского ЛОРа для мам, уставших бояться</p>
@@ -124,18 +124,18 @@ export default function Enrollment() {
 
         <nav className="legal-col" aria-label="Программа">
           <h3>Программа</h3>
-          <a href="#nose">Нос и дыхание</a>
-          <a href="#ear">Уши и отиты</a>
-          <a href="#adenoids">Аденоиды</a>
-          <a href="#orvi">Бесконечные ОРВИ</a>
-          <a href="#anti">Антибиотики</a>
+          <a href="#program">Нос и дыхание</a>
+          <a href="#program">Уши и отиты</a>
+          <a href="#program">Аденоиды</a>
+          <a href="#program">Бесконечные ОРВИ</a>
+          <a href="#program">Антибиотики</a>
         </nav>
 
         <nav className="legal-col" aria-label="Информация">
           <h3>Информация</h3>
           <a href="#about">О враче</a>
           <a href="#reviews">Отзывы</a>
-          <a href="#zapis">Частые вопросы</a>
+          <a href="#faq">Частые вопросы</a>
           <a href="#disclaimer">Дисклеймер</a>
           <a href="#contacts">Связаться с нами</a>
         </nav>
