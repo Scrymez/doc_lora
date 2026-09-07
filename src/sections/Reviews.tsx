@@ -107,11 +107,10 @@ export default function Reviews() {
   }
 
   return (
-    <section className="reviews-section bg-[#fcf5e9] pb-7 pt-3">
+    <section className="reviews-section bg-[linear-gradient(180deg,#f7e1c2_0%,#fcf5e9_50%,#f7e1c2_100%)] pb-7 pt-3">
       <h2 className="h-display px-5 text-[20px] leading-[1.05] text-brown">
-        Что говорят <span className="text-accent">мамы</span>,
-        <br />
-        <span className="text-accent">которые уже прошли курс:</span>
+        Что говорят{' '}
+        <span className="text-accent">мамы, которые уже прошли курс:</span>
       </h2>
 
       {/* Карусель */}
@@ -122,13 +121,13 @@ export default function Reviews() {
       >
         {reviews.map((r, i) => (
           <article key={i} className="review-card shrink-0 snap-center">
-            <div className="review-tg">
-              <div className="review-tg-head">
-                <span className="review-tg-src">
-                  <span aria-hidden>✈</span> Отзыв из Telegram
-                </span>
-                <span className="review-tg-real">✓ реальный</span>
-              </div>
+            <div className="review-head">
+              <span className="review-src">
+                <span aria-hidden>✈</span> Отзыв из Telegram
+              </span>
+              <span className="review-real">✓ реальный</span>
+            </div>
+            <div className="review-msg">
               <div className="review-bubble">
                 <p className={`review-name ${nameColor(r.name)}`}>{r.name}</p>
                 <p className="review-text">{r.text}</p>

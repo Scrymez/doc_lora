@@ -4,6 +4,7 @@ import av3 from '../assets/Новая папка/БЛОК 6/Ellipse 2527.png'
 import av4 from '../assets/Новая папка/БЛОК 6/Ellipse 2528.png'
 import av5 from '../assets/Новая папка/БЛОК 6/Ellipse 2529.png'
 import photo from '../assets/Новая папка 2/БЛОК 6/Маржана.svg'
+import photoDesktop from '../assets/doctor-desktop.png'
 
 const avatars = [av1, av2, av3, av4, av5]
 
@@ -15,7 +16,13 @@ export default function About() {
         <img
           src={photo}
           alt="Омарова Маржана — врач"
-          className="w-full select-none"
+          className="about-photo-mobile w-full select-none"
+          draggable={false}
+        />
+        <img
+          src={photoDesktop}
+          alt="Омарова Маржана — врач"
+          className="about-photo-desktop select-none"
           draggable={false}
         />
         <div className="absolute bottom-[5px] left-[19.7%] rounded-[16px] bg-[#cdcdcd]/70 p-[6px]">
@@ -25,9 +32,9 @@ export default function About() {
               <br />
               больше 8 лет
             </p>
-            <p className="absolute bottom-[-2px] left-[5px] bg-gradient-to-r from-[#ffefd4] to-[#ffc26f] bg-clip-text font-['Manrope'] font-extrabold leading-none tracking-[-0.11em] text-transparent">
-              <span className="text-[54px]">8</span>
-              <span className="text-[40px]">+</span>
+            <p className="absolute top-[20px] left-[5px] flex items-center font-['Manrope'] font-extrabold leading-none tracking-[-0.11em]">
+              <span className="bg-[linear-gradient(90deg,#ffefd4,#ffc26f)] bg-clip-text text-[54px] text-transparent">8</span>
+              <span className="bg-[linear-gradient(90deg,#ffefd4,#ffc26f)] bg-clip-text text-[40px] text-transparent">+</span>
             </p>
           </div>
         </div>
@@ -57,7 +64,7 @@ export default function About() {
           </div>
           <span className="text-[13px] font-medium">
             <b className="font-bold text-white">200+ мам</b>{' '}
-            <span className="bg-gradient-to-r from-[#ffefd4] to-[#ffc26f] bg-clip-text text-transparent">
+            <span className="bg-[linear-gradient(90deg,#ffefd4,#ffc26f)] bg-clip-text text-transparent">
               уже прошли этот курс
             </span>
           </span>
@@ -65,15 +72,15 @@ export default function About() {
 
         <p className="mt-5 text-center text-[15px] leading-relaxed text-brown-soft">
           <b className="text-brown">
-            Я имею опыт и в хирургии, и в амбулаторной практике, поэтому хорошо
-            понимаю,
+            Я имею опыт и в хирургии, и в амбулаторной практике,
           </b>{' '}
-          когда операция действительно необходима, а когда причину проблемы можно
-          найти и решить её без хирургического вмешательства.
+          поэтому хорошо понимаю, когда операция действительно необходима, а
+          когда причину проблемы можно найти и решить её без хирургического
+          вмешательства.
         </p>
 
         {/* Цитата */}
-        <div className="about-quote mt-5 rounded-[16px] bg-[#ece0cd] px-5 py-4 text-left text-[14px] italic leading-relaxed text-brown-soft">
+        <div className="about-quote mt-5 rounded-[18px] bg-[#ece0cd] px-5 py-4 text-left text-[14px] italic leading-relaxed text-brown-soft">
           <b className="font-semibold text-brown">Я за баланс, а не за крайности.</b>{' '}
           Понять причину — и решить спокойно.
         </div>
@@ -82,19 +89,19 @@ export default function About() {
         <div className="about-actions mt-5 flex flex-col gap-3">
           <a
             href="#zapis"
-            className="flex items-center justify-center rounded-full bg-[linear-gradient(122deg,#f34d05_1.6%,#ec734b_52%,#f34d05_109%)] px-6 py-4 text-[13px] font-bold uppercase tracking-wide text-white shadow-[0_10px_20px_-6px_rgba(243,77,5,0.35)] transition active:scale-[0.99]"
+            className="flex items-center justify-center rounded-[18px] bg-[linear-gradient(122deg,#f34d05_7%,#ec734b_51%,#f34d05_100%)] px-6 py-4 text-[13px] font-bold uppercase tracking-wide text-white shadow-[inset_0_0_39.33px_rgba(255,255,255,0.6),0_0_50px_rgba(243,116,66,0.70)] transition active:scale-[0.99]"
           >
             Забрать курс
           </a>
           <a
             href="#blog"
-            className="flex items-center justify-between gap-3 rounded-full border-2 border-accent px-6 py-3 text-[14px] font-semibold text-accent transition active:scale-[0.99]"
+            className="flex items-center justify-between gap-3 rounded-[18px] border-2 border-accent px-6 py-3 text-[14px] font-semibold text-accent transition active:scale-[0.99]"
           >
             <span className="flex-1 text-center">Перейти в блог</span>
-            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 border-accent">
+            <span className="flex h-[37px] w-[37px] shrink-0 items-center justify-center rounded-full border-2 border-accent">
               <svg
                 viewBox="0 0 20 20"
-                className="h-3.5 w-3.5"
+                className="h-5 w-5"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"

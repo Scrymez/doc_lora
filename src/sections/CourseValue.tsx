@@ -1,9 +1,8 @@
 import type { ReactNode } from 'react'
-import starIcon from '../assets/Новая папка/БЛОК/Vector.svg'
 
 function Gold({ children }: { children: ReactNode }) {
   return (
-    <span className="bg-gradient-to-r from-[#ffefd4] to-[#ffc26f] bg-clip-text text-transparent">
+    <span className="bg-[linear-gradient(90deg,#ffefd4,#ffc26f)] bg-clip-text text-transparent">
       {children}
     </span>
   )
@@ -42,7 +41,19 @@ export default function CourseValue() {
       <div className="course-value-card relative rounded-[20px] bg-[#42281e] px-5 pt-8 pb-7">
         {/* Звёздочка */}
         <span className="course-star absolute -top-7 right-6 flex h-12 w-12 items-center justify-center rounded-full bg-[#ffd28f]">
-          <img src={starIcon} alt="" className="h-[29px] w-[27px]" />
+          <svg
+            viewBox="0 0 24 24"
+            className="h-[26px] w-[26px]"
+            fill="none"
+            stroke="#4a2e22"
+            strokeWidth="4"
+            strokeLinecap="round"
+            aria-hidden
+          >
+            <path d="M12 3 V21" />
+            <path d="M4.2 7.5 L19.8 16.5" />
+            <path d="M19.8 7.5 L4.2 16.5" />
+          </svg>
         </span>
 
         <h2 className="font-display text-[18px] font-extrabold uppercase leading-[20px]">

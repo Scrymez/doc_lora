@@ -30,7 +30,7 @@ export default function Hero() {
 
       <a
         href="#zapis"
-        className="mt-6 block w-full rounded-2xl bg-[linear-gradient(122deg,#f34d05_1.6%,#ec734b_52%,#f34d05_109%)] py-4 text-[16px] font-semibold uppercase tracking-wide text-white shadow-[inset_0_2px_10px_rgba(255,255,255,0.4),0_18px_38px_-10px_rgba(240,80,25,0.55)] transition active:scale-[0.99]"
+        className="mt-6 block w-full rounded-2xl bg-[linear-gradient(122deg,#f34d05_7%,#ec734b_51%,#f34d05_100%)] py-4 text-[16px] font-semibold uppercase tracking-wide text-white shadow-[inset_0_0_39.33px_rgba(255,255,255,0.6),0_0_40px_rgba(243,77,5,0.30)] transition active:scale-[0.99]"
       >
         Хочу на курс
       </a>

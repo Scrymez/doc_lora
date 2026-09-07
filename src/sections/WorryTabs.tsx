@@ -59,7 +59,7 @@ export default function WorryTabs() {
   const [open, setOpen] = useState(0)
 
   return (
-    <section className="worry-section bg-[#fcf5e9] px-5 pt-4 pb-6">
+    <section className="worry-section bg-[linear-gradient(180deg,#f7e1c2_0%,#fcf5e9_50%,#f7e1c2_100%)] px-5 pt-4 pb-6">
       <h2 className="h-display text-[20px] leading-[1.05] text-brown">
         Что вас <span className="text-accent">тревожит</span> больше всего?
       </h2>
@@ -78,8 +78,8 @@ export default function WorryTabs() {
                 aria-expanded={active}
                 className={`worry-tab flex w-full items-center justify-between px-4 py-3.5 text-left transition ${
                   active
-                    ? 'bg-[#a84322] text-white'
-                    : 'border border-[#eaddca] bg-white text-brown'
+                    ? 'bg-[#ac4a2a] text-white'
+                    : 'border border-[#a84322]/40 bg-[#fff3e2] text-brown'
                 }`}
               >
                 <span className="text-[14px]">{it.name}</span>
@@ -87,7 +87,7 @@ export default function WorryTabs() {
               </button>
 
               {active && (
-                <div className="border-2 border-accent bg-[#fdf6ea] px-4 pb-4 pt-3">
+                <div className="border-4 border-accent bg-[#fff3e2] px-4 pb-4 pt-3">
                   <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-accent">
                     {it.eyebrow}
                   </p>
@@ -97,7 +97,7 @@ export default function WorryTabs() {
                   <p className="mt-2 text-[11px] leading-[1.45] text-brown-soft">
                     {it.body}
                   </p>
-                  <span className="mt-3 inline-block rounded-[10px] bg-[#c87654] px-4 py-2 text-[11px] text-white">
+                  <span className="mt-3 inline-block rounded-[10px] bg-[#a84322]/70 px-4 py-2 text-[11px] text-white">
                     Модуль «{it.name}»
                   </span>
                 </div>

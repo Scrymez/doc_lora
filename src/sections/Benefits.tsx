@@ -25,17 +25,16 @@ const items: ReactNode[] = [
 function Arrow() {
   return (
     <svg
-      viewBox="0 0 12 11"
-      className="mt-[2px] h-4 w-4 shrink-0"
+      viewBox="0 0 32 29"
+      className="mt-[2px] h-[22px] w-[26px] shrink-0"
       fill="none"
-      stroke="#a84322"
-      strokeWidth="1.6"
+      stroke="#af4e29"
+      strokeWidth="4"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
     >
-      <path d="M2 1 V6 H10" />
-      <path d="M7 3.2 L10 6 L7 8.8" />
+      <path d="M2 2V9.46995C2 11.5035 2.74307 13.4537 4.06575 14.8916C5.38842 16.3295 7.18235 17.1373 9.0529 17.1373H29.9982M22.5292 26.4474L29.2242 19.1692C29.4701 18.9022 29.6651 18.5852 29.7983 18.2362C29.9314 17.8873 29.9999 17.5132 30 17.1354M22.531 7.82529L29.2242 15.1055C29.7408 15.6671 30 16.4032 30 17.1392" />
     </svg>
   )
 }
@@ -62,7 +61,7 @@ export default function Benefits() {
       <div className="mt-8 flex justify-center">
         <a
           href="#zapis"
-          className="w-[281px] rounded-[10px] bg-[linear-gradient(122deg,#f34d05_1.6%,#ec734b_52%,#f34d05_109%)] py-3.5 text-center text-[14px] font-medium uppercase tracking-wide text-white shadow-[inset_0_2px_10px_rgba(255,255,255,0.4),0_18px_38px_-10px_rgba(240,80,25,0.55)] transition active:scale-[0.99]"
+          className="w-[281px] rounded-[10px] bg-[linear-gradient(122deg,#f34d05_7%,#ec734b_51%,#f34d05_100%)] py-3.5 text-center text-[14px] font-medium uppercase tracking-wide text-white shadow-[inset_0_0_39.33px_rgba(255,255,255,0.6),0_0_40px_rgba(243,77,5,0.30)] transition active:scale-[0.99]"
         >
           Хочу так же
         </a>
