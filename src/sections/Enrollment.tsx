@@ -46,7 +46,6 @@ export default function Enrollment() {
             </div>
           </div>
           <a href="#zapis" className="price-button btn-magic">Хочу на курс</a>
-          <small>ⓘ Курс носит образовательный характер и не заменяет консультацию врача. <u>Подробнее</u></small>
         </div>
 
         <div id="faq" className="faq">
