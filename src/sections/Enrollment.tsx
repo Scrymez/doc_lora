@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import heartDisclaimer from '../assets/heart-disclaimer.svg'
-import socInstagram from '../assets/soc-instagram.svg'
-import socTelegram from '../assets/soc-telegram.svg'
-import socVk from '../assets/soc-vk.svg'
+import heartDisclaimer from '../assets/images/heart-disclaimer.svg'
+import socInstagram from '../assets/icons/social-instagram.svg'
+import socTelegram from '../assets/icons/social-telegram.svg'
+import socVk from '../assets/icons/social-vk.svg'
 
 const questions = [
   ['Это замена моему врачу?', 'Нет. Курс не заменяет очный приём, диагностику и лечение, когда они необходимы. Он помогает вам понимать, что происходит с ребёнком, какие действия действительно нужны и когда пора обращаться к врачу.'],

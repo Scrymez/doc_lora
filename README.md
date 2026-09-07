@@ -1,32 +1,41 @@
-# React + TypeScript + Vite
+# Лора — лендинг курса «Жизнь без соплей»
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Одностраничный лендинг авторского онлайн-курса детского ЛОРа для мам.
 
-Currently, two official plugins are available:
+## Стек
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Vite + React + TypeScript
+- Tailwind CSS (v4)
+- Lenis — плавный скролл (десктоп)
+- Oxlint
 
-## React Compiler
+## Скрипты
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install     # установка зависимостей
+npm run dev     # локальный дев-сервер
+npm run build   # прод-сборка (tsc + vite build)
+npm run preview # предпросмотр сборки
+npm run lint    # линтер
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Структура
+
+```
+src/
+  App.tsx            # корневой компонент: адаптив, плавный скролл, reveal-анимации
+  main.tsx           # точка входа
+  index.css          # токены темы, базовые и десктоп-стили
+  sections/          # секции лендинга (Hero, About, Reviews, Enrollment, …)
+  assets/
+    images/          # фотографии, аватары, декоративная графика
+    icons/           # иконки симптомов, соцсети, ui-иконки
+public/
+  favicon.svg
+```
+
+## Адаптив
+
+- `< 768px` — мобильная вёрстка
+- `768–1439px` — десктоп-макет, пропорционально ужатый под вьюпорт
+- `≥ 1440px` — полноразмерный десктоп

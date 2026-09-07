@@ -1,4 +1,4 @@
-import heart from '../assets/heart.svg'
+import heart from '../assets/images/heart.svg'
 
 export default function Mission() {
   return (

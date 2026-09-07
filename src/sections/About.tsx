@@ -1,10 +1,10 @@
-import av1 from '../assets/Новая папка/БЛОК 6/Ellipse 2525.png'
-import av2 from '../assets/Новая папка/БЛОК 6/Ellipse 2526.png'
-import av3 from '../assets/Новая папка/БЛОК 6/Ellipse 2527.png'
-import av4 from '../assets/Новая папка/БЛОК 6/Ellipse 2528.png'
-import av5 from '../assets/Новая папка/БЛОК 6/Ellipse 2529.png'
-import photo from '../assets/Новая папка 2/БЛОК 6/Маржана.svg'
-import photoDesktop from '../assets/doctor-desktop.png'
+import av1 from '../assets/images/avatar-1.png'
+import av2 from '../assets/images/avatar-2.png'
+import av3 from '../assets/images/avatar-3.png'
+import av4 from '../assets/images/avatar-4.png'
+import av5 from '../assets/images/avatar-5.png'
+import photo from '../assets/images/doctor-mobile.svg'
+import photoDesktop from '../assets/images/doctor-desktop.png'
 
 const avatars = [av1, av2, av3, av4, av5]
 

@@ -1,7 +1,7 @@
-import glow from '../assets/1 БЛОК/Ellipse 2536.png'
-import badgeBg from '../assets/1 БЛОК/Rectangle 240649020.png'
-import heroPhoto from '../assets/Новая папка 2/1 БЛОК/image_150-removebg 1.svg'
-import userIcon from '../assets/Новая папка/1 БЛОК/1 БЛОК/basil_user-solid.svg'
+import glow from '../assets/images/hero-glow.png'
+import badgeBg from '../assets/images/hero-badge.png'
+import heroPhoto from '../assets/images/hero-photo.svg'
+import userIcon from '../assets/icons/user.svg'
 
 export default function Hero() {
   return (
