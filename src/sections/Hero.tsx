@@ -45,22 +45,30 @@ export default function Hero() {
           className="pointer-events-none absolute bottom-[-7%] left-1/2 z-20 h-[95px] w-[112%] max-w-none -translate-x-1/2 translate-y-[9px] select-none object-fill"
         />
         {/* Бейдж-плашка */}
-        <div className="absolute left-[58%] top-0 z-0 flex h-[157px] w-[73px] -translate-x-1/2 flex-col items-center pt-8">
+        <div className="absolute left-[58%] top-0 z-0 flex h-[188px] w-[87px] -translate-x-1/2 flex-col items-center pt-[22px]">
           <img
             src={badgeBg}
             alt=""
             className="absolute inset-0 h-full w-full rounded-2xl object-cover"
           />
           {/* Иконка-человечек */}
-          <span className="absolute -top-3 z-20 flex h-7 w-7 items-center justify-center rounded-[7px] bg-white">
-            <img src={userIcon} alt="" className="h-[14px] w-[14px]" />
+          <span className="absolute -top-2 z-20 flex h-[14px] w-[14px] items-center justify-center rounded-[4px] bg-white">
+            <img src={userIcon} alt="" className="h-[10px] w-[10px]" />
           </span>
           <div className="relative z-10 text-center text-cream">
-            <p className="text-[8px] font-medium tracking-wide">БОЛЕЕ</p>
-            <p className="text-[26px] font-extrabold leading-none">31</p>
-            <p className="text-[9px] font-semibold tracking-wide">ТЫСЯЧ</p>
-            <p className="mt-1.5 px-1 text-[7px] leading-tight text-cream/80">
-              количество мам-подписчиц у врача в инстаграм
+            <p className="text-[8.91px] font-medium tracking-wide text-[#fffefe]">БОЛЕЕ</p>
+            <p className="bg-[linear-gradient(90deg,#ffefd4,#ffc26f)] bg-clip-text text-[31.2px] font-semibold leading-none text-transparent">
+              31
+            </p>
+            <p className="text-[8.91px] font-medium tracking-wide text-[#fffefe]">ТЫСЯЧ</p>
+            <p className="mx-auto mt-1.5 whitespace-nowrap text-center text-[6.68px] font-light leading-[7.8px] text-[#fffefe]">
+              количество
+              <br />
+              мам-подписчиц
+              <br />
+              у врача в
+              <br />
+              инстаграм
             </p>
           </div>
         </div>
@@ -68,7 +76,7 @@ export default function Hero() {
         <img
           src={heroPhoto}
           alt="Врач ЛОР с ребёнком"
-          className="relative z-10 w-[78%] select-none"
+          className="relative z-10 w-[97%] select-none"
           draggable={false}
         />
       </div>
