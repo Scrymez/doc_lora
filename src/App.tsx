@@ -227,8 +227,13 @@ function App() {
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-            io.unobserve(entry.target)
+            const el = entry.target as HTMLElement
+            el.classList.add('is-visible')
+            io.unobserve(el)
+            // после появления снимаем will-change, чтобы не держать GPU-слой зря
+            window.setTimeout(() => {
+              el.style.willChange = 'auto'
+            }, 900)
           }
         }
       },
