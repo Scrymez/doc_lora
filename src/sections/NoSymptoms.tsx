@@ -10,7 +10,7 @@ export default function NoSymptoms() {
       <div className="mt-5 flex justify-center">
         <a
           href="#zapis"
-          className="w-[260px] rounded-[10px] bg-[linear-gradient(122deg,#2b211d_44%,#5e483f_48%,#2b211d_139%)] py-3 text-center text-[11px] font-medium uppercase tracking-wide text-[#fff4dc] shadow-[0_6px_14px_-4px_rgba(0,0,0,0.4)] transition active:scale-[0.99]"
+          className="btn-magic w-[260px] rounded-[10px] bg-[linear-gradient(122deg,#2b211d_44%,#5e483f_48%,#2b211d_139%)] py-3 text-center text-[11px] font-medium uppercase tracking-wide text-[#fff4dc] shadow-[0_6px_14px_-4px_rgba(0,0,0,0.4)] transition active:scale-[0.99]"
         >
           Получить доступ за 9 990 ₽
         </a>

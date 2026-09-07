@@ -61,7 +61,7 @@ export default function Benefits() {
       <div className="mt-8 flex justify-center">
         <a
           href="#zapis"
-          className="w-[281px] rounded-[10px] bg-[linear-gradient(122deg,#f34d05_7%,#ec734b_51%,#f34d05_100%)] py-3.5 text-center text-[14px] font-medium uppercase tracking-wide text-white shadow-[inset_0_0_39.33px_rgba(255,255,255,0.6),0_0_40px_rgba(243,77,5,0.30)] transition active:scale-[0.99]"
+          className="btn-magic w-[281px] rounded-[10px] bg-[linear-gradient(122deg,#f34d05_7%,#ec734b_51%,#f34d05_100%)] py-3.5 text-center text-[14px] font-medium uppercase tracking-wide text-white shadow-[inset_0_0_39.33px_rgba(255,255,255,0.6),0_0_40px_rgba(243,77,5,0.30)] transition active:scale-[0.99]"
         >
           Хочу так же
         </a>

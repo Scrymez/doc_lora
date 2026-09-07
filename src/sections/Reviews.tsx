@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 type Review = { name: string; time: string; text: string; outcome: string }
 
@@ -106,6 +106,18 @@ export default function Reviews() {
     setActive(Math.min(reviews.length - 1, Math.max(0, i)))
   }
 
+  // Горизонтальный жест колёсиком/трекпадом крутит карусель (не даём Lenis
+  // перехватить его), вертикальный — уходит наверх к Lenis и скроллит страницу.
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const onWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) e.stopPropagation()
+    }
+    el.addEventListener('wheel', onWheel, { capture: true, passive: true })
+    return () => el.removeEventListener('wheel', onWheel, { capture: true })
+  }, [])
+
   return (
     <section className="reviews-section bg-[linear-gradient(180deg,#f7e1c2_0%,#fcf5e9_50%,#f7e1c2_100%)] pb-7 pt-3">
       <h2 className="h-display px-5 text-[20px] leading-[1.05] text-brown">
@@ -117,7 +129,6 @@ export default function Reviews() {
       <div
         ref={ref}
         onScroll={onScroll}
-        data-lenis-prevent
         className="reviews-track mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none]"
       >
         {reviews.map((r, i) => (

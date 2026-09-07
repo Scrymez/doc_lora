@@ -89,13 +89,13 @@ export default function About() {
         <div className="about-actions mt-5 flex flex-col gap-3">
           <a
             href="#zapis"
-            className="flex items-center justify-center rounded-[18px] bg-[linear-gradient(122deg,#f34d05_7%,#ec734b_51%,#f34d05_100%)] px-6 py-4 text-[13px] font-bold uppercase tracking-wide text-white shadow-[inset_0_0_39.33px_rgba(255,255,255,0.6),0_0_50px_rgba(243,116,66,0.70)] transition active:scale-[0.99]"
+            className="btn-magic flex items-center justify-center rounded-[18px] bg-[linear-gradient(122deg,#f34d05_7%,#ec734b_51%,#f34d05_100%)] px-6 py-4 text-[13px] font-bold uppercase tracking-wide text-white shadow-[inset_0_0_39.33px_rgba(255,255,255,0.6),0_0_50px_rgba(243,116,66,0.70)] transition active:scale-[0.99]"
           >
             Забрать курс
           </a>
           <a
             href="#blog"
-            className="flex items-center justify-between gap-3 rounded-[18px] border-2 border-accent px-6 py-3 text-[14px] font-semibold text-accent transition active:scale-[0.99]"
+            className="btn-magic flex items-center justify-between gap-3 rounded-[18px] border-2 border-accent px-6 py-3 text-[14px] font-semibold text-accent transition active:scale-[0.99]"
           >
             <span className="flex-1 text-center">Перейти в блог</span>
             <span className="flex h-[37px] w-[37px] shrink-0 items-center justify-center rounded-full border-2 border-accent">
@@ -118,7 +118,7 @@ export default function About() {
 
         <a
           href="#diplomas"
-          className="mt-4 block w-full rounded-full border-2 border-accent py-4 text-center text-[13px] font-bold uppercase tracking-wide text-accent transition active:scale-[0.99]"
+          className="btn-magic mt-4 block w-full rounded-full border-2 border-accent py-4 text-center text-[13px] font-bold uppercase tracking-wide text-accent transition active:scale-[0.99]"
         >
           Дипломы и сертификаты доктора Маржанат
         </a>

@@ -45,7 +45,7 @@ export default function Enrollment() {
               <b>9 990 ₽</b>
             </div>
           </div>
-          <a href="#zapis" className="price-button">Хочу на курс</a>
+          <a href="#zapis" className="price-button btn-magic">Хочу на курс</a>
           <small>ⓘ Курс носит образовательный характер и не заменяет консультацию врача. <u>Подробнее</u></small>
         </div>
 
@@ -78,7 +78,7 @@ export default function Enrollment() {
           <button type="button" aria-label="Воспроизвести видео"><span>▶</span> Видео</button>
         </div>
         <b className="footer-sign">С теплом, Маржанат</b>
-        <a href="#zapis" className="footer-button">Записаться сейчас</a>
+        <a href="#zapis" className="footer-button btn-magic">Записаться сейчас</a>
       </footer>
       <section className="disclaimer-section">
         <div className="disclaimer-card">

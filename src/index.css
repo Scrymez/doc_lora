@@ -28,6 +28,84 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Появление секций при скролле (parallax-reveal). Класс .reveal вешает JS,
+   поэтому без JS/при reduced-motion контент виден сразу. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(52px) scale(0.985);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  [data-parallax] {
+    will-change: transform;
+  }
+
+  /* «Волшебная медицинская» кнопка: подъём + свечение + световой свип.
+     Свип идёт вперёд при наведении/фокусе и сам откатывается назад при уходе. */
+  .btn-magic {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+      transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.6s ease,
+      filter 0.6s ease;
+  }
+  .btn-magic::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 35%,
+      rgba(255, 255, 255, 0.55) 50%,
+      transparent 65%
+    );
+    transform: translateX(-130%);
+    transition: transform 0.85s ease;
+  }
+  .btn-magic:hover,
+  .btn-magic:focus-visible {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+      0 12px 30px rgba(243, 77, 5, 0.32),
+      0 0 26px rgba(255, 196, 111, 0.5);
+    filter: brightness(1.06) saturate(1.05);
+  }
+  .btn-magic:hover::before,
+  .btn-magic:focus-visible::before {
+    transform: translateX(130%);
+  }
+  .btn-magic > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/* Искры-крестики при клике (создаёт JS, живут доли секунды) */
+.magic-spark {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  color: #ffcf7a;
+  text-shadow:
+    0 0 8px rgba(255, 196, 111, 0.9),
+    0 0 2px #fff;
+  transform: translate(-50%, -50%);
+}
+
 body {
   margin: 0;
   background: var(--color-cream);
