@@ -123,11 +123,12 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
 .about-title-main,.about-title-sub { display:inline; }
 .about-photo-desktop { display:none; }
 
-@media (min-width:376px) and (max-width:1023px) {
+@media (min-width:376px) and (max-width:767px) {
   .site-shell { max-width:480px; }
 }
 
-@media (min-width: 1024px) {
+/* Планшеты и промежуточные ширины используют десктоп-макет; JS ужимает его zoom-ом */
+@media (min-width: 768px) {
   body { background:#fcf5e9; }
   .site-shell { max-width:1440px; font-family:'Inter',ui-sans-serif,sans-serif; }
 

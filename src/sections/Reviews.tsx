@@ -101,8 +101,8 @@ export default function Reviews() {
   function onScroll() {
     const el = ref.current
     if (!el) return
-    const pitch = el.scrollWidth / reviews.length
-    const i = Math.round(el.scrollLeft / pitch)
+    const max = el.scrollWidth - el.clientWidth
+    const i = max > 0 ? Math.round((el.scrollLeft / max) * (reviews.length - 1)) : 0
     setActive(Math.min(reviews.length - 1, Math.max(0, i)))
   }
 
@@ -117,6 +117,7 @@ export default function Reviews() {
       <div
         ref={ref}
         onScroll={onScroll}
+        data-lenis-prevent
         className="reviews-track mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none]"
       >
         {reviews.map((r, i) => (
