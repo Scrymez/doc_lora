@@ -97,7 +97,9 @@ export default function About() {
             Забрать курс
           </a>
           <a
-            href="#blog"
+            href="https://www.instagram.com/lor_omarova"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-magic flex items-center justify-between gap-3 rounded-[18px] border-2 border-accent px-6 py-3 text-[14px] font-semibold text-accent transition active:scale-[0.99]"
           >
             <span className="flex-1 text-center">Перейти в блог</span>
