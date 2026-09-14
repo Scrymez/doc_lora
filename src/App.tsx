@@ -18,6 +18,9 @@ import Enrollment from './sections/Enrollment'
 // получается пиксель-в-пиксель тот же десктоп, только пропорционально меньше.
 // Мобилка (<768) и полноценный десктоп (>=1440) не трогаются.
 const DESIGN_WIDTH = 1440
+// Насколько сильно допускаем увеличение макета на больших мониторах,
+// чтобы он заполнял экран, но не разрастался бесконечно на ultra-wide.
+const MAX_ZOOM = 1.6
 
 function App() {
   useEffect(() => {
@@ -43,8 +46,10 @@ function App() {
 
     const apply = () => {
       const w = window.innerWidth
-      if (w >= 768 && w < DESIGN_WIDTH) {
-        const k = w / DESIGN_WIDTH
+      // ужимаем макет на планшетах и увеличиваем на широких мониторах, чтобы он
+      // всегда занимал всю ширину экрана (в пределах MAX_ZOOM)
+      if (w >= 768) {
+        const k = Math.min(w / DESIGN_WIDTH, MAX_ZOOM)
         shell.style.width = `${DESIGN_WIDTH}px`
         shell.style.maxWidth = 'none'
         if (supportsZoom) {
