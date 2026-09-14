@@ -11,6 +11,7 @@ export default function CheckoutModal({ open, onClose }: Props) {
   const [email, setEmail] = useState('')
   const [consent, setConsent] = useState(false)
   const [hint, setHint] = useState('')
+  const [paid, setPaid] = useState(false)
   const [legalDoc, setLegalDoc] = useState<string | null>(null)
 
   useEffect(() => {
@@ -42,8 +43,16 @@ export default function CheckoutModal({ open, onClose }: Props) {
       return
     }
     setHint('')
-    startCheckout(email)
+    startCheckout(email, { onSuccess: () => setPaid(true) })
   }
+
+  useEffect(() => {
+    if (!open) {
+      // сброс при закрытии
+      setPaid(false)
+      setHint('')
+    }
+  }, [open])
 
   if (!open) return null
 
@@ -62,9 +71,26 @@ export default function CheckoutModal({ open, onClose }: Props) {
           ×
         </button>
 
-        <h2 className="checkout-title">Оформление курса</h2>
+        {paid ? (
+          <div className="checkout-success">
+            <div className="checkout-success-icon">✓</div>
+            <h2 className="checkout-title">Оплата прошла!</h2>
+            <p>
+              Ссылка на курс отправлена на <b>{email}</b>.
+            </p>
+            <p className="checkout-success-note">
+              Проверьте почту (в том числе папку «Спам»). Если письма нет в течение
+              нескольких минут — напишите нам.
+            </p>
+            <button type="button" className="checkout-pay btn-magic" onClick={onClose}>
+              Готово
+            </button>
+          </div>
+        ) : (
+          <>
+            <h2 className="checkout-title">Оформление курса</h2>
 
-        <div className="checkout-product">
+            <div className="checkout-product">
           <div className="checkout-product-info">
             <span className="checkout-badge">Онлайн-курс</span>
             <p className="checkout-name">«Жизнь без соплей»</p>
@@ -133,7 +159,9 @@ export default function CheckoutModal({ open, onClose }: Props) {
           Оплатить {ruble(COURSE.amount)}
         </button>
 
-        <p className="checkout-secure">🔒 Оплата картой через защищённое соединение</p>
+            <p className="checkout-secure">🔒 Оплата картой через защищённое соединение</p>
+          </>
+        )}
       </div>
 
       <LegalModal docId={legalDoc} onClose={() => setLegalDoc(null)} />

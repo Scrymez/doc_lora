@@ -516,6 +516,36 @@ html.modal-open { overflow: hidden; }
   font-size: 12px;
   color: rgba(66, 40, 30, 0.5);
 }
+.checkout-success {
+  text-align: center;
+  padding: 8px 4px 4px;
+}
+.checkout-success-icon {
+  width: 66px;
+  height: 66px;
+  margin: 6px auto 16px;
+  border-radius: 50%;
+  background: #5c913b;
+  color: #fff;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: diploma-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.checkout-success p {
+  margin: 8px 0;
+  color: #4a382e;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.checkout-success-note {
+  color: #6a4d3c !important;
+  font-size: 13px !important;
+}
+.checkout-success .checkout-pay {
+  margin-top: 20px;
+}
 
 /* Блок согласия у кнопки покупки */
 .consent {

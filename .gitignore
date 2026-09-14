@@ -27,3 +27,7 @@ dist-ssr
 .claude/
 .claude-flow/
 HANDOFF.md
+
+# Секреты бэкенда (реальный конфиг с ключами) — только на сервере
+server/config.php
+ruvector.db

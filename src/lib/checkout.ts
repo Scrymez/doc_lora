@@ -23,10 +23,13 @@ export function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
 }
 
-export function startCheckout(email: string) {
+type CheckoutCallbacks = { onSuccess?: () => void; onFail?: (reason?: string) => void }
+
+export function startCheckout(email: string, cb: CheckoutCallbacks = {}) {
   const cp = (window as unknown as { cp?: CpNamespace }).cp
   if (!cp) {
     console.warn('CloudPayments widget не загружен')
+    cb.onFail?.('widget')
     return
   }
   const widget = new cp.CloudPayments()
@@ -44,10 +47,12 @@ export function startCheckout(email: string) {
     },
     {
       onSuccess() {
-        /* оплата прошла — доступ выдаётся на стороне сервера по вебхуку */
+        // Оплата прошла. Ссылка на курс уходит на почту на стороне сервера
+        // (вебхук CloudPayments → server/pay-callback.php).
+        cb.onSuccess?.()
       },
-      onFail() {
-        /* отказ/ошибка оплаты */
+      onFail(reason?: string) {
+        cb.onFail?.(reason)
       },
     },
   )
