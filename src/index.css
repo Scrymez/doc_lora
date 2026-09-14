@@ -487,7 +487,7 @@ html.modal-open { overflow: hidden; }
   line-height: 1.4;
   color: #b0632f;
 }
-.checkout-consent { margin-bottom: 14px; }
+.consent.checkout-consent { margin-bottom: 30px; }
 .checkout-consent .consent-row label { color: rgba(66, 40, 30, 0.75); }
 .checkout-consent a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px; }
 .checkout-consent a:hover { color: #7a2f16; }
