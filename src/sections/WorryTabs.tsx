@@ -71,15 +71,15 @@ export default function WorryTabs() {
         {items.map((it, i) => {
           const active = i === open
           return (
-            <div key={it.name} className={`worry-item overflow-hidden rounded-[12px] ${active ? 'is-active' : ''}`}>
+            <div key={it.name} className={`worry-item rounded-[12px] ${active ? 'is-active' : ''}`}>
               <button
                 type="button"
                 onClick={() => setOpen(active ? -1 : i)}
                 aria-expanded={active}
                 className={`worry-tab flex w-full items-center justify-between px-4 py-3.5 text-left transition ${
                   active
-                    ? 'bg-[#ac4a2a] text-white'
-                    : 'border border-[#a84322]/40 bg-[#fff3e2] text-brown'
+                    ? 'rounded-t-[12px] bg-[#ac4a2a] text-white'
+                    : 'rounded-[12px] border border-[#a84322]/40 bg-[#fff3e2] text-brown'
                 }`}
               >
                 <span className="text-[14px]">{it.name}</span>
@@ -87,7 +87,7 @@ export default function WorryTabs() {
               </button>
 
               {active && (
-                <div className="border-4 border-accent bg-[#fff3e2] px-4 pb-4 pt-3">
+                <div className="rounded-b-[12px] border-4 border-t-0 border-accent bg-[#fff3e2] px-4 pb-4 pt-3">
                   <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-accent">
                     {it.eyebrow}
                   </p>

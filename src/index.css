@@ -835,7 +835,7 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
   .worry-item { grid-column:1; overflow:visible; }
   .worry-item button { min-height:64px; padding:16px 22px; border-radius:25px; }
   .worry-item button span { font-size:24px; }
-  .worry-item.is-active > div { position:absolute; top:0; left:477px; right:0; min-height:396px; padding:42px 48px; border-radius:23px; }
+  .worry-item.is-active > div { position:absolute; top:0; left:477px; right:0; min-height:396px; padding:42px 48px; border-radius:23px; border-top-width:4px; }
   .worry-item.is-active > div > p:first-child { font-size:20px; letter-spacing:0.95px; }
   .worry-item.is-active > div h3 { max-width:609px; margin-top:14px; font-size:22px; line-height:1.5; letter-spacing:0.95px; }
   .worry-item.is-active > div p:last-of-type { max-width:609px; margin-top:24px; font-size:18px; line-height:1.67; }
