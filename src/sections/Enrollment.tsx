@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import LegalModal from './LegalModal'
+import CheckoutModal from './CheckoutModal'
 import heartDisclaimer from '../assets/images/heart-disclaimer.svg'
 import socInstagram from '../assets/icons/social-instagram.svg'
 import socTelegram from '../assets/icons/social-telegram.svg'
@@ -17,6 +18,7 @@ const questions = [
 export default function Enrollment() {
   const [open, setOpen] = useState(1)
   const [legalDoc, setLegalDoc] = useState<string | null>(null)
+  const [checkoutOpen, setCheckoutOpen] = useState(false)
   const openDoc = (id: string) => (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
@@ -52,7 +54,7 @@ export default function Enrollment() {
               <b>9 990 ₽</b>
             </div>
           </div>
-          <a href="#zapis" className="price-button btn-magic">Хочу на курс</a>
+          <button type="button" className="price-button btn-magic" onClick={() => setCheckoutOpen(true)}>Хочу на курс</button>
         </div>
 
         <div id="faq" className="faq">
@@ -158,6 +160,7 @@ export default function Enrollment() {
         </p>
       </footer>
       <LegalModal docId={legalDoc} onClose={() => setLegalDoc(null)} />
+      <CheckoutModal open={checkoutOpen} onClose={() => setCheckoutOpen(false)} />
     </>
   )
 }

@@ -598,7 +598,7 @@ body {
 .price-badge { padding:8px 16px; border-radius:20px; background:#a84322; color:#fff; font-size:11px; font-weight:600; text-transform:uppercase; transform:rotate(17.64deg); }
 .price-number b { font-size:28px; color:#ffe2b2; white-space:nowrap; }
 .price-number s { color:rgba(210,240,210,0.7); font-size:14px; }
-.price-button { display:flex; align-items:center; justify-content:center; width:100%; margin-top:4px; padding:12px; border-radius:10px; background:linear-gradient(122deg,#f34d05 7%,#ec734b 51%,#f34d05 100%); box-shadow:inset 0 0 39.33px rgba(255,255,255,0.6),0 0 40px rgba(243,77,5,0.30); color:#fff; font-size:13px; font-weight:700; text-transform:uppercase; }
+.price-button { display:flex; align-items:center; justify-content:center; width:100%; margin-top:4px; padding:12px; border:0; cursor:pointer; border-radius:10px; background:linear-gradient(122deg,#f34d05 7%,#ec734b 51%,#f34d05 100%); box-shadow:inset 0 0 39.33px rgba(255,255,255,0.6),0 0 40px rgba(243,77,5,0.30); color:#fff; font-size:13px; font-weight:700; text-transform:uppercase; }
 .price-card small { display:block; margin-top:13px; color:#cdbeb7; font-size:9px; line-height:1.35; }
 .not-here { margin-top:40px; padding:26px 22px; border-radius:21px; background:#a84322; color:#fff5ea; }
 .not-here-title { margin:0; font:800 15px/1.2 var(--font-display); text-transform:uppercase; letter-spacing:.02em; }

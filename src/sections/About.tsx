@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import DiplomasModal from './DiplomasModal'
-import CheckoutModal from './CheckoutModal'
 import av1 from '../assets/images/avatar-1.png'
 import av2 from '../assets/images/avatar-2.png'
 import av3 from '../assets/images/avatar-3.png'
@@ -13,7 +12,6 @@ const avatars = [av1, av2, av3, av4, av5]
 
 export default function About() {
   const [diplomasOpen, setDiplomasOpen] = useState(false)
-  const [checkoutOpen, setCheckoutOpen] = useState(false)
   return (
     <section id="about" className="about-section bg-[#fcf5e9] pb-10">
       {/* Фото на всю ширину + бейдж 8+, скругление низа 20 */}
@@ -92,13 +90,12 @@ export default function About() {
 
         {/* Кнопки: Забрать курс + Перейти в блог */}
         <div className="about-actions mt-5 flex flex-col gap-3">
-          <button
-            type="button"
-            onClick={() => setCheckoutOpen(true)}
+          <a
+            href="#zapis"
             className="btn-magic flex items-center justify-center rounded-[18px] bg-[linear-gradient(122deg,#f34d05_7%,#ec734b_51%,#f34d05_100%)] px-6 py-4 text-[13px] font-bold uppercase tracking-wide text-white shadow-[inset_0_0_39.33px_rgba(255,255,255,0.6),0_0_50px_rgba(243,116,66,0.70)] transition active:scale-[0.99]"
           >
             Забрать курс
-          </button>
+          </a>
           <a
             href="https://www.instagram.com/lor_omarova"
             target="_blank"
@@ -134,7 +131,6 @@ export default function About() {
       </div>
 
       <DiplomasModal open={diplomasOpen} onClose={() => setDiplomasOpen(false)} />
-      <CheckoutModal open={checkoutOpen} onClose={() => setCheckoutOpen(false)} />
     </section>
   )
 }
