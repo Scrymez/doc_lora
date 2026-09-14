@@ -224,7 +224,7 @@ function App() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const targets = [
       ...document.querySelectorAll<HTMLElement>(
-        '.middle-shell > section, .site-shell > section:not(.hero-section), .site-shell > footer, .site-shell > .disclaimer-section',
+        '.middle-shell > section, .site-shell > section:not(.hero-section):not(.mission-section), .site-shell > footer, .site-shell > .disclaimer-section',
       ),
     ]
     targets.forEach((t) => t.classList.add('reveal'))

@@ -47,6 +47,21 @@ html {
     will-change: transform;
   }
 
+  /* Пословное появление текста миссии */
+  .mission-animate .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .mission-animate.in .word {
+    opacity: 1;
+    transform: none;
+  }
+
   /* «Волшебная медицинская» кнопка: подъём + свечение + световой свип.
      Свип идёт вперёд при наведении/фокусе и сам откатывается назад при уходе. */
   .btn-magic {
