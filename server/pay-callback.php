@@ -14,7 +14,19 @@
  * ВАЖНО: реальные ключи держим в config.php (рядом), он НЕ коммитится в git.
  */
 
+// Не показываем ошибки наружу (утечка путей/деталей)
+@ini_set('display_errors', '0');
+error_reporting(0);
+
 header('Content-Type: application/json; charset=utf-8');
+header('X-Content-Type-Options: nosniff');
+
+// Принимаем только POST (вебхук CloudPayments шлёт POST)
+if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['code' => 13]);
+    exit;
+}
 
 $configPath = __DIR__ . '/config.php';
 if (!file_exists($configPath)) {
@@ -56,6 +68,11 @@ if ($status && strcasecmp($status, 'Completed') !== 0) {
 }
 
 // --- 3. Письмо со ссылкой на курс ---
+$email = trim((string) $email);
+// защита от инъекции заголовков письма
+if (preg_match('/[\r\n]/', $email)) {
+    $email = '';
+}
 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     send_course_email($cfg, $email);
 }
