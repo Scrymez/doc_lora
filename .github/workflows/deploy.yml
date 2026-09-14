@@ -1,12 +1,15 @@
-name: Deploy to Beget (FTP)
+name: Build deploy branch
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,27 +21,22 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      # Собираем то, что должно лежать в public_html:
-      #  - весь собранный сайт (dist)
-      #  - PHP-вебхук в папке pay/
+      # Собираем содержимое public_html: сайт (dist) + PHP-вебхук в pay/
       - name: Assemble deploy folder
         run: |
           rm -rf deploy
           mkdir -p deploy/pay
           cp -r dist/. deploy/
           cp server/pay-callback.php deploy/pay/pay-callback.php
+          # чтобы git pull на хостинге не удалял конфиг с ключами
+          touch deploy/.nojekyll
 
-      - name: Upload to Beget via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      # Публикуем в ветку deploy (готовые файлы для Beget)
+      - name: Publish to deploy branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          # Путь к корню сайта на Beget. При необходимости поправьте.
-          server-dir: /loromarova.ru/public_html/
-          local-dir: ./deploy/
-          # НЕ трогаем секретный конфиг и служебный файл состояния на сервере
-          exclude: |
-            **/config.php
-            **/.ftp-deploy-sync-state.json
-            **/.git*
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
+          publish_branch: deploy
+          force_orphan: true
+          exclude_assets: ''
