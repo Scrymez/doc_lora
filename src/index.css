@@ -94,6 +94,162 @@ html {
   }
 }
 
+/* ── Модалка «Дипломы и сертификаты» ───────────────────────────── */
+html.modal-open { overflow: hidden; }
+
+.diploma-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(38, 28, 22, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  animation: diploma-fade 0.25s ease;
+}
+@keyframes diploma-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.diploma-stage {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.diploma-viewport {
+  position: relative;
+  max-width: min(1100px, 100%);
+  max-height: 80vh;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fcf5e9;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  touch-action: none;
+  animation: diploma-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes diploma-pop {
+  from { transform: scale(0.94); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.diploma-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(1100px, 100%);
+  max-height: 80vh;
+  object-fit: contain;
+  transform-origin: center center;
+  cursor: zoom-in;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.08s linear;
+  will-change: transform;
+}
+
+.diploma-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  z-index: 3;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.3s ease;
+}
+.diploma-close:hover {
+  background: var(--color-accent);
+  transform: rotate(90deg);
+}
+
+.diploma-nav {
+  z-index: 2;
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  margin: 0 8px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.diploma-nav:hover { background: var(--color-accent); }
+.diploma-nav:active { transform: scale(0.9); }
+
+.diploma-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.diploma-counter {
+  color: #fff1e6;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.diploma-thumbs {
+  display: flex;
+  gap: 10px;
+  padding: 6px 10px;
+  max-width: 92vw;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.diploma-thumbs::-webkit-scrollbar { display: none; }
+.diploma-thumb {
+  flex: 0 0 auto;
+  width: 66px;
+  height: 46px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+.diploma-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.diploma-thumb:hover { opacity: 1; }
+.diploma-thumb.is-active { opacity: 1; border-color: var(--color-accent); }
+
+@media (max-width: 640px) {
+  .diploma-overlay { padding: 12px; }
+  .diploma-close { top: 10px; right: 12px; width: 42px; height: 42px; font-size: 26px; }
+  .diploma-nav { width: 40px; height: 40px; font-size: 26px; margin: 0; }
+  .diploma-viewport { max-height: 66vh; }
+  .diploma-img { max-height: 66vh; }
+  .diploma-thumb { width: 54px; height: 38px; }
+}
+
 /* Искры-крестики при клике (создаёт JS, живут доли секунды) */
 .magic-spark {
   position: fixed;

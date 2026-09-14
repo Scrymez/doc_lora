@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import DiplomasModal from './DiplomasModal'
 import av1 from '../assets/images/avatar-1.png'
 import av2 from '../assets/images/avatar-2.png'
 import av3 from '../assets/images/avatar-3.png'
@@ -9,6 +11,7 @@ import photoDesktop from '../assets/images/doctor-desktop.png'
 const avatars = [av1, av2, av3, av4, av5]
 
 export default function About() {
+  const [diplomasOpen, setDiplomasOpen] = useState(false)
   return (
     <section id="about" className="about-section bg-[#fcf5e9] pb-10">
       {/* Фото на всю ширину + бейдж 8+, скругление низа 20 */}
@@ -116,13 +119,16 @@ export default function About() {
           </a>
         </div>
 
-        <a
-          href="#diplomas"
+        <button
+          type="button"
+          onClick={() => setDiplomasOpen(true)}
           className="btn-magic mt-4 block w-full rounded-full border-2 border-accent py-4 text-center text-[13px] font-bold uppercase tracking-wide text-accent transition active:scale-[0.99]"
         >
           Дипломы и сертификаты доктора Маржанат
-        </a>
+        </button>
       </div>
+
+      <DiplomasModal open={diplomasOpen} onClose={() => setDiplomasOpen(false)} />
     </section>
   )
 }
