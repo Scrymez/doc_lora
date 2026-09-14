@@ -737,6 +737,28 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
   .site-shell { padding-left:5px; padding-right:5px; }
 }
 
+/* Плавное раскрытие/закрытие аккордеонов «Что вас тревожит» */
+.worry-panel {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-bottom-width: 0;
+  transition:
+    max-height 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 0.3s ease,
+    padding 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-width 0.4s ease;
+}
+.worry-item.is-active .worry-panel {
+  max-height: 240px;
+  opacity: 1;
+  padding-top: 12px;
+  padding-bottom: 16px;
+  border-bottom-width: 4px;
+}
+
 /* Планшеты и промежуточные ширины используют десктоп-макет; JS ужимает его zoom-ом */
 @media (min-width: 768px) {
   body { background:#fcf5e9; }
@@ -835,7 +857,9 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
   .worry-item { grid-column:1; overflow:visible; }
   .worry-item button { min-height:64px; padding:16px 22px; border-radius:25px; }
   .worry-item button span { font-size:24px; }
+  .worry-item:not(.is-active) > div { display:none; }
   .worry-item.is-active > div { position:absolute; top:0; left:477px; right:0; min-height:396px; padding:42px 48px; border-radius:23px; border-top-width:4px; }
+  .worry-item.is-active .worry-panel { max-height:none; opacity:1; overflow:visible; }
   .worry-item.is-active > div > p:first-child { font-size:20px; letter-spacing:0.95px; }
   .worry-item.is-active > div h3 { max-width:609px; margin-top:14px; font-size:22px; line-height:1.5; letter-spacing:0.95px; }
   .worry-item.is-active > div p:last-of-type { max-width:609px; margin-top:24px; font-size:18px; line-height:1.67; }
