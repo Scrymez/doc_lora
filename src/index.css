@@ -920,3 +920,36 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
   .legal-note { grid-column:1 / -1; grid-row:3; margin-top:28px; font-size:20px; line-height:30px; }
   .legal-brand p { font-size:20px; }
 }
+
+/* ── Блог (отдельные страницы, лендинг не затрагивают) ──────────── */
+.blog-page { min-height: 100vh; background: #fcf5e9; color: #42281e; font-family: var(--font-sans); }
+.blog-header { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 20px; background: rgba(252,245,233,0.92); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(66,40,30,0.1); }
+.blog-logo { font-family: var(--font-display); font-weight: 800; font-size: 18px; color: #a84322; text-transform: uppercase; letter-spacing: -0.01em; }
+.blog-cta { padding: 10px 18px; border-radius: 999px; background: linear-gradient(122deg,#f34d05,#ec734b 52%,#f34d05); color: #fff; font-weight: 700; font-size: 13px; text-transform: uppercase; }
+.blog-main { max-width: 760px; margin: 0 auto; padding: 32px 20px 56px; }
+.blog-intro h1 { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 32px; line-height: 1.1; text-transform: uppercase; color: #42281e; }
+.blog-intro p { margin-top: 12px; font-size: 17px; line-height: 1.6; color: #6a4d3c; }
+.blog-grid { display: grid; gap: 18px; margin-top: 28px; }
+@media (min-width: 700px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+.blog-card { display: flex; flex-direction: column; gap: 8px; padding: 22px; border-radius: 18px; background: #fff; border: 1px solid rgba(66,40,30,0.08); box-shadow: 0 6px 20px rgba(66,40,30,0.06); transition: transform .25s ease, box-shadow .25s ease; }
+.blog-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(66,40,30,0.12); }
+.blog-card-date { font-size: 12px; color: #a89a8e; text-transform: uppercase; letter-spacing: 0.04em; }
+.blog-card h2 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 19px; line-height: 1.25; color: #42281e; }
+.blog-card p { margin: 0; font-size: 14px; line-height: 1.55; color: #6a4d3c; }
+.blog-card-more { margin-top: auto; color: #a84322; font-weight: 600; font-size: 14px; }
+
+.article-back { display: inline-block; margin-bottom: 16px; color: #a84322; font-weight: 600; font-size: 14px; }
+.article-date { display: block; font-size: 13px; color: #a89a8e; text-transform: uppercase; letter-spacing: 0.04em; }
+.article h1 { margin: 8px 0 20px; font-family: var(--font-display); font-weight: 800; font-size: 30px; line-height: 1.15; color: #42281e; }
+.article h2 { margin: 28px 0 10px; font-family: var(--font-display); font-weight: 700; font-size: 22px; color: #a84322; }
+.article p { margin: 0 0 16px; font-size: 17px; line-height: 1.7; }
+.article ul { margin: 0 0 16px; padding-left: 22px; }
+.article li { margin-bottom: 8px; font-size: 17px; line-height: 1.6; }
+.article-note { padding: 14px 18px; border-radius: 14px; background: #f7e1c2; font-size: 14px; line-height: 1.5; color: #6a4d3c; }
+.article-cta { margin-top: 36px; padding: 26px; border-radius: 20px; background: #42281e; color: #fff1dc; text-align: center; }
+.article-cta p { margin: 0 0 16px; font-size: 17px; }
+.article-cta-btn { display: inline-block; padding: 14px 26px; border-radius: 14px; background: linear-gradient(122deg,#f34d05,#ec734b 52%,#f34d05); color: #fff; font-weight: 700; text-transform: uppercase; font-size: 14px; }
+.article-more { margin-top: 48px; }
+.article-more h3 { font-family: var(--font-display); font-weight: 800; font-size: 20px; text-transform: uppercase; color: #42281e; }
+.blog-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 760px; margin: 0 auto; padding: 24px 20px 40px; border-top: 1px solid rgba(66,40,30,0.1); font-size: 13px; color: #6a4d3c; flex-wrap: wrap; }
+.blog-footer a { color: #a84322; font-weight: 600; }
