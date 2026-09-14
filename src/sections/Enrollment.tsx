@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import LegalModal from './LegalModal'
 import heartDisclaimer from '../assets/images/heart-disclaimer.svg'
 import socInstagram from '../assets/icons/social-instagram.svg'
 import socTelegram from '../assets/icons/social-telegram.svg'
@@ -15,6 +16,12 @@ const questions = [
 
 export default function Enrollment() {
   const [open, setOpen] = useState(1)
+  const [legalDoc, setLegalDoc] = useState<string | null>(null)
+  const openDoc = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setLegalDoc(id)
+  }
   return (
     <>
       <section id="zapis" className="price-section">
@@ -140,16 +147,17 @@ export default function Enrollment() {
         </nav>
 
         <nav className="legal-links" aria-label="Юридическая информация">
-          <a href="#privacy">Политика в отношении обработки персональных данных</a>
-          <a href="#mailing">Согласие на рассылку электронных сообщений</a>
-          <a href="#offer">Публичная оферта</a>
-          <a href="#personal-data">Согласие на обработку персональных данных</a>
+          <a href="#" onClick={openDoc('privacy')}>Политика в отношении обработки персональных данных</a>
+          <a href="#" onClick={openDoc('mailing')}>Согласие на рассылку электронных сообщений</a>
+          <a href="#" onClick={openDoc('oferta')}>Публичная оферта</a>
+          <a href="#" onClick={openDoc('personal-data')}>Согласие на обработку персональных данных</a>
         </nav>
 
         <p className="legal-note">
           Информация на данном сайте носит <span>образовательный характер и не заменяет консультацию специалиста.</span> Имеются противопоказания, перед применением проконсультируйтесь со специалистом. <span>Ресурс не несет ответственность за использование и трактовку предоставленной информации.</span> Сфера медицины стремительно развивается, поэтому информация может устареть, стать неполной и некорректной. Используя информацию, вы соглашаетесь с тем, что ресурс не несет ответственности за принятие любого решения и никак не связан с ним. Представленная информация не является медицинской консультацией, руководством к действию или заменой профессиональной медицинской помощи.
         </p>
       </footer>
+      <LegalModal docId={legalDoc} onClose={() => setLegalDoc(null)} />
     </>
   )
 }

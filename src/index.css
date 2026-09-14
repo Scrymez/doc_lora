@@ -250,6 +250,311 @@ html.modal-open { overflow: hidden; }
   .diploma-thumb { width: 54px; height: 38px; }
 }
 
+/* ── Модалка юридических документов ─────────────────────────────── */
+.legal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(38, 28, 22, 0.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  animation: diploma-fade 0.25s ease;
+}
+.legal-card {
+  display: flex;
+  flex-direction: column;
+  width: min(760px, 100%);
+  max-height: 86vh;
+  background: #fcf5e9;
+  border-radius: 22px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: diploma-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.legal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 28px 16px;
+  border-bottom: 1px solid rgba(66, 40, 30, 0.12);
+}
+.legal-head h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+.legal-close {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(66, 40, 30, 0.1);
+  color: #42281e;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.3s ease;
+}
+.legal-close:hover {
+  background: var(--color-accent);
+  color: #fff;
+  transform: rotate(90deg);
+}
+.legal-body {
+  overflow-y: auto;
+  padding: 20px 28px 28px;
+  color: #4a382e;
+  font-size: 15px;
+  line-height: 1.6;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(66, 40, 30, 0.35) transparent;
+}
+.legal-body::-webkit-scrollbar { width: 6px; }
+.legal-body::-webkit-scrollbar-thumb {
+  background: rgba(66, 40, 30, 0.3);
+  border-radius: 999px;
+}
+.legal-body h3 {
+  margin: 22px 0 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: #42281e;
+}
+.legal-body p { margin: 0 0 12px; }
+.legal-body ul { margin: 0 0 14px; padding-left: 20px; }
+.legal-body li { margin-bottom: 6px; }
+.legal-updated {
+  margin-top: 24px !important;
+  color: rgba(66, 40, 30, 0.55);
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* ── Экран оформления курса (checkout) ──────────────────────────── */
+.checkout-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(38, 28, 22, 0.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  animation: diploma-fade 0.25s ease;
+}
+.checkout-card {
+  position: relative;
+  width: min(460px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 30px 28px 24px;
+  background: #fcf5e9;
+  border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  animation: diploma-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.checkout-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+}
+.checkout-title {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #42281e;
+}
+.checkout-product {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: #42281e;
+  color: #fff1dc;
+}
+.checkout-badge {
+  display: inline-block;
+  margin-bottom: 6px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: #5c913b;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.checkout-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+}
+.checkout-sub {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: rgba(255, 241, 220, 0.7);
+}
+.checkout-sum {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0 20px;
+  padding: 14px 4px 0;
+  border-top: 1px solid rgba(66, 40, 30, 0.14);
+  font-size: 15px;
+  color: #6a4d3c;
+}
+.checkout-sum-values {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.checkout-sum-values s {
+  color: rgba(66, 40, 30, 0.4);
+  font-size: 16px;
+}
+.checkout-sum-values b {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--color-accent);
+}
+.checkout-field {
+  display: block;
+  margin-bottom: 16px;
+}
+.checkout-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #42281e;
+}
+.checkout-field input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid rgba(66, 40, 30, 0.18);
+  border-radius: 12px;
+  background: #fff;
+  color: #42281e;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.checkout-field input:focus {
+  border-color: var(--color-accent);
+}
+.checkout-note {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #b0632f;
+}
+.checkout-consent { margin-bottom: 14px; }
+.checkout-consent .consent-row label { color: rgba(66, 40, 30, 0.75); }
+.checkout-consent a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px; }
+.checkout-consent a:hover { color: #7a2f16; }
+.checkout-hint { margin: 0 0 12px; }
+.checkout-pay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 16px;
+  border: 0;
+  border-radius: 16px;
+  background: linear-gradient(122deg, #f34d05 7%, #ec734b 51%, #f34d05 100%);
+  box-shadow: inset 0 0 39.33px rgba(255, 255, 255, 0.6), 0 0 40px rgba(243, 77, 5, 0.3);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.checkout-secure {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(66, 40, 30, 0.5);
+}
+
+/* Блок согласия у кнопки покупки */
+.consent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 4px 0 2px;
+  text-align: left;
+}
+.consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.consent-row label {
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #cdbeb7;
+}
+.consent input[type='checkbox'] {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+.consent a {
+  color: #ffd28d;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.consent a:hover { color: #fff; }
+.buy-locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(0.35);
+}
+.consent-hint {
+  color: #c0552f;
+  font-size: 12px;
+  font-weight: 600;
+}
+.consent--light label { color: rgba(66, 40, 30, 0.7); }
+.consent--light a { color: var(--color-accent); }
+.consent--light a:hover { color: #7a2f16; }
+
+@media (max-width: 640px) {
+  .legal-head { padding: 18px 18px 12px; }
+  .legal-head h2 { font-size: 18px; }
+  .legal-body { padding: 16px 18px 22px; font-size: 14px; }
+}
+
 /* Искры-крестики при клике (создаёт JS, живут доли секунды) */
 .magic-spark {
   position: fixed;
