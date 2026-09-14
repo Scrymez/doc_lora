@@ -731,6 +731,12 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
   .site-shell { max-width:480px; }
 }
 
+/* Небольшой внешний отступ на мобилке, чтобы скруглённые углы секций
+   не срезались у самого края экрана */
+@media (max-width:767px) {
+  .site-shell { padding-left:5px; padding-right:5px; }
+}
+
 /* Планшеты и промежуточные ширины используют десктоп-макет; JS ужимает его zoom-ом */
 @media (min-width: 768px) {
   body { background:#fcf5e9; }
