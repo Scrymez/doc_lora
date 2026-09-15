@@ -229,7 +229,9 @@ export default function DiplomasModal({ open, onClose, startIndex = 0 }: Props) 
           go(-1)
         }}
       >
-        ‹
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="M15 6l-6 6 6 6" />
+        </svg>
       </button>
 
       <div
@@ -267,7 +269,9 @@ export default function DiplomasModal({ open, onClose, startIndex = 0 }: Props) 
           go(1)
         }}
       >
-        ›
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="M9 6l6 6-6 6" />
+        </svg>
       </button>
 
       <div className="diploma-bottom" onPointerDown={(e) => e.stopPropagation()}>
