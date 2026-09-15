@@ -1,6 +1,6 @@
 import glow from '../assets/images/hero-glow.png'
 import badgeBg from '../assets/images/hero-badge.png'
-import heroPhoto from '../assets/images/hero-photo.svg'
+import heroPhoto from '../assets/images/hero-photo.png'
 import userIcon from '../assets/icons/user.svg'
 
 export default function Hero() {
@@ -45,7 +45,7 @@ export default function Hero() {
           className="pointer-events-none absolute bottom-[-7%] left-1/2 z-20 h-[95px] w-[112%] max-w-none -translate-x-1/2 translate-y-[9px] select-none object-fill"
         />
         {/* Бейдж-плашка */}
-        <div className="absolute left-[58%] top-0 z-0 flex h-[188px] w-[87px] -translate-x-1/2 flex-col items-center pt-[22px]">
+        <div className="absolute left-[2%] top-[28px] z-0 flex h-[188px] w-[87px] flex-col items-center pt-[22px]">
           <img
             src={badgeBg}
             alt=""
@@ -76,7 +76,7 @@ export default function Hero() {
         <img
           src={heroPhoto}
           alt="Врач ЛОР с ребёнком"
-          className="relative z-10 w-[97%] select-none"
+          className="relative z-10 w-[124%] translate-x-[9%] select-none"
           data-parallax="0.03"
           draggable={false}
         />

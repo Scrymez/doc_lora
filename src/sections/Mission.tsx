@@ -63,7 +63,7 @@ export default function Mission() {
           className="word text-[12px] font-semibold text-brown"
           style={{ transitionDelay: `${i * STEP + 120}ms` }}
         >
-          Ваша доктор Маржанат
+          Доктор Маржанат Омарова
         </span>
         <img
           src={heart}

@@ -64,7 +64,7 @@ export default function VideoPlayer({ src }: { src: string }) {
       {!playing && (
         <button className="vp-bigplay" aria-label="Смотреть видео" onClick={toggle}>
           <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor" aria-hidden>
-            <path d="M8 5v14l11-7z" />
+            <path d="M7 6l11 6-11 6z" />
           </svg>
         </button>
       )}
@@ -97,7 +97,7 @@ export default function VideoPlayer({ src }: { src: string }) {
             {fmt(cur)} / {fmt(dur)}
           </span>
           <div className="vp-spacer" />
-          <button className="vp-btn" onClick={toggleMute} aria-label={muted ? 'Включить звук' : 'Выключить звук'}>
+          <button className="vp-btn vp-vol" onClick={toggleMute} aria-label={muted ? 'Включить звук' : 'Выключить звук'}>
             {muted ? (
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden>
                 <path d="M4 9v6h4l5 5V4L8 9H4zm12.5 3l2.5 2.5-1 1L15.5 13 13 15.5l-1-1L14.5 12 12 9.5l1-1L15.5 11 18 8.5l1 1z" />
