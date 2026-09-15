@@ -83,7 +83,13 @@ export default function Enrollment() {
           <p>Когда вы понимаете, что происходит с ребёнком, страх отступает. <span>А на его место возвращается спокойная уверенность — та самая, которая нужна ему иногда больше лекарства.</span></p>
         </div>
         <div className="video-placeholder">
-          <button type="button" aria-label="Воспроизвести видео"><span>▶</span> Видео</button>
+          <video
+            className="video-player"
+            src="/video/intro.mp4"
+            controls
+            playsInline
+            preload="metadata"
+          />
         </div>
         <b className="footer-sign">С теплом, Маржанат</b>
         <a href="#zapis" className="footer-button btn-magic">Записаться сейчас</a>
