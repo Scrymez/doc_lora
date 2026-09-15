@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import LegalModal from './LegalModal'
 import CheckoutModal from './CheckoutModal'
+import VideoPlayer from './VideoPlayer'
 import heartDisclaimer from '../assets/images/heart-disclaimer.svg'
 import socInstagram from '../assets/icons/social-instagram.svg'
 import socTelegram from '../assets/icons/social-telegram.svg'
@@ -83,13 +84,7 @@ export default function Enrollment() {
           <p>Когда вы понимаете, что происходит с ребёнком, страх отступает. <span>А на его место возвращается спокойная уверенность — та самая, которая нужна ему иногда больше лекарства.</span></p>
         </div>
         <div className="video-placeholder">
-          <video
-            className="video-player"
-            src="/video/intro.mp4"
-            controls
-            playsInline
-            preload="metadata"
-          />
+          <VideoPlayer src="/video/intro.mp4" />
         </div>
         <b className="footer-sign">С теплом, Маржанат</b>
         <a href="#zapis" className="footer-button btn-magic">Записаться сейчас</a>
