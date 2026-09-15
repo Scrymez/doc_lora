@@ -721,6 +721,31 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
 .vp-btn svg { width:20px; height:20px; filter:drop-shadow(0 1px 2px rgba(0,0,0,0.6)); }
 .vp-vol svg { transform:translateX(2px); }
 .vp-btn:hover { background:var(--color-accent); color:#fff; }
+/* Регулятор громкости — появляется при наведении на значок звука */
+.vp-vol-wrap { position:relative; display:flex; align-items:center; }
+.vp-volpanel {
+  position:absolute; left:50%; bottom:calc(100% + 6px); transform:translateX(-50%);
+  display:flex; align-items:center; justify-content:center;
+  height:104px; width:34px; padding:12px 0; border-radius:999px;
+  background:rgba(28,18,14,0.92); box-shadow:0 6px 18px rgba(0,0,0,0.35);
+  opacity:0; visibility:hidden; transition:opacity 0.18s ease, visibility 0.18s ease;
+  z-index:5;
+}
+.vp-vol-wrap:hover .vp-volpanel,
+.vp-volpanel:hover { opacity:1; visibility:visible; }
+.vp-volslider {
+  -webkit-appearance:none; appearance:none; width:80px; height:5px; border-radius:999px; cursor:pointer;
+  transform:rotate(-90deg);
+  background:linear-gradient(to right, #f34d05 var(--vp-vol,100%), rgba(255,255,255,0.3) var(--vp-vol,100%));
+}
+.vp-volslider::-webkit-slider-thumb {
+  -webkit-appearance:none; width:13px; height:13px; border-radius:50%;
+  background:#fff; box-shadow:0 0 0 3px rgba(243,77,5,0.6); cursor:pointer;
+}
+.vp-volslider::-moz-range-thumb {
+  width:13px; height:13px; border:0; border-radius:50%;
+  background:#fff; box-shadow:0 0 0 3px rgba(243,77,5,0.6); cursor:pointer;
+}
 .vp-time { color:#fff; font-size:13px; font-variant-numeric:tabular-nums; white-space:nowrap; text-shadow:0 1px 3px rgba(0,0,0,0.7); }
 .vp-spacer { flex:1; }
 .footer-sign { display:block; margin-top:18px; color:#af5131; font:800 20px var(--font-display); text-transform:uppercase; }

@@ -12,6 +12,7 @@ export default function VideoPlayer({ src }: { src: string }) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
   const [muted, setMuted] = useState(false)
+  const [vol, setVol] = useState(1)
   const [cur, setCur] = useState(0)
   const [dur, setDur] = useState(0)
 
@@ -33,6 +34,20 @@ export default function VideoPlayer({ src }: { src: string }) {
     const v = videoRef.current
     if (!v) return
     v.muted = !v.muted
+    setMuted(v.muted)
+    if (!v.muted && v.volume === 0) {
+      v.volume = 1
+      setVol(1)
+    }
+  }
+
+  const changeVol = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const v = videoRef.current
+    if (!v) return
+    const nv = Number(e.target.value)
+    v.volume = nv
+    v.muted = nv === 0
+    setVol(nv)
     setMuted(v.muted)
   }
 
@@ -97,17 +112,32 @@ export default function VideoPlayer({ src }: { src: string }) {
             {fmt(cur)} / {fmt(dur)}
           </span>
           <div className="vp-spacer" />
-          <button className="vp-btn vp-vol" onClick={toggleMute} aria-label={muted ? 'Включить звук' : 'Выключить звук'}>
-            {muted ? (
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden>
-                <path d="M4 9v6h4l5 5V4L8 9H4zm12.5 3l2.5 2.5-1 1L15.5 13 13 15.5l-1-1L14.5 12 12 9.5l1-1L15.5 11 18 8.5l1 1z" />
-              </svg>
-            ) : (
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden>
-                <path d="M4 9v6h4l5 5V4L8 9H4zm11.5 3a4 4 0 00-2.5-3.7v7.4A4 4 0 0015.5 12z" />
-              </svg>
-            )}
-          </button>
+          <div className="vp-vol-wrap">
+            <div className="vp-volpanel">
+              <input
+                className="vp-volslider"
+                type="range"
+                min={0}
+                max={1}
+                step={0.05}
+                value={muted ? 0 : vol}
+                onChange={changeVol}
+                style={{ ['--vp-vol' as string]: `${(muted ? 0 : vol) * 100}%` }}
+                aria-label="Громкость"
+              />
+            </div>
+            <button className="vp-btn vp-vol" onClick={toggleMute} aria-label={muted ? 'Включить звук' : 'Выключить звук'}>
+              {muted || vol === 0 ? (
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden>
+                  <path d="M4 9v6h4l5 5V4L8 9H4zm12.5 3l2.5 2.5-1 1L15.5 13 13 15.5l-1-1L14.5 12 12 9.5l1-1L15.5 11 18 8.5l1 1z" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden>
+                  <path d="M4 9v6h4l5 5V4L8 9H4zm11.5 3a4 4 0 00-2.5-3.7v7.4A4 4 0 0015.5 12z" />
+                </svg>
+              )}
+            </button>
+          </div>
           <button className="vp-btn" onClick={fullscreen} aria-label="На весь экран">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="M4 9V5a1 1 0 011-1h4M20 9V5a1 1 0 00-1-1h-4M4 15v4a1 1 0 001 1h4M20 15v4a1 1 0 01-1 1h-4" />
