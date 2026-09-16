@@ -10,6 +10,7 @@ const OLD_PRICE = 15000
 export default function CheckoutModal({ open, onClose }: Props) {
   const [email, setEmail] = useState('')
   const [consent, setConsent] = useState(false)
+  const [mailing, setMailing] = useState(false)
   const [hint, setHint] = useState('')
   const [paid, setPaid] = useState(false)
   const [legalDoc, setLegalDoc] = useState<string | null>(null)
@@ -43,7 +44,7 @@ export default function CheckoutModal({ open, onClose }: Props) {
       return
     }
     setHint('')
-    startCheckout(email, { onSuccess: () => setPaid(true) })
+    startCheckout(email, { mailing, onSuccess: () => setPaid(true) })
   }
 
   useEffect(() => {
@@ -149,6 +150,21 @@ export default function CheckoutModal({ open, onClose }: Props) {
                 Согласие на обработку ПД
               </a>
               .
+            </label>
+          </div>
+          <div className="consent-row">
+            <input
+              id="checkout-mailing"
+              type="checkbox"
+              checked={mailing}
+              onChange={(e) => setMailing(e.target.checked)}
+            />
+            <label htmlFor="checkout-mailing">
+              Хочу получать полезные материалы и новости — даю{' '}
+              <a href="#" onClick={openDoc('mailing')}>
+                Согласие на рассылку
+              </a>{' '}
+              (необязательно).
             </label>
           </div>
         </div>

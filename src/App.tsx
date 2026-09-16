@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './Home'
 import BlogList from './pages/BlogList'
 import Article from './pages/Article'
+import CookieBanner from './sections/CookieBanner'
 
 // Прокрутка наверх при смене страницы
 function ScrollToTop() {
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/blog/:slug" element={<Article />} />
         <Route path="*" element={<Home />} />
       </Routes>
+      <CookieBanner />
     </>
   )
 }

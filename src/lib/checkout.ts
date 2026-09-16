@@ -23,7 +23,11 @@ export function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
 }
 
-type CheckoutCallbacks = { onSuccess?: () => void; onFail?: (reason?: string) => void }
+type CheckoutCallbacks = {
+  mailing?: boolean
+  onSuccess?: () => void
+  onFail?: (reason?: string) => void
+}
 
 export function startCheckout(email: string, cb: CheckoutCallbacks = {}) {
   const cp = (window as unknown as { cp?: CpNamespace }).cp
@@ -43,7 +47,7 @@ export function startCheckout(email: string, cb: CheckoutCallbacks = {}) {
       accountId: email.trim(),
       email: email.trim(),
       skin: 'mini',
-      data: { email: email.trim() },
+      data: { email: email.trim(), mailingConsent: cb.mailing === true },
     },
     {
       onSuccess() {

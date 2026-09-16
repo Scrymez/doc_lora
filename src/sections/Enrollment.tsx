@@ -2,6 +2,7 @@ import { useState } from 'react'
 import LegalModal from './LegalModal'
 import CheckoutModal from './CheckoutModal'
 import VideoPlayer from './VideoPlayer'
+import { SELLER } from './legal'
 import heartDisclaimer from '../assets/images/heart-disclaimer.svg'
 import socInstagram from '../assets/icons/social-instagram.svg'
 import socTelegram from '../assets/icons/social-telegram.svg'
@@ -116,6 +117,10 @@ export default function Enrollment() {
         <div className="legal-brand">
           <h2>Жизнь без соплей</h2>
           <p>Курс от практикующего детского ЛОРа для мам, уставших бояться</p>
+          <div className="legal-contacts">
+            <a href={`mailto:${SELLER.email}`}>{SELLER.email}</a>
+            <a href={`tel:${SELLER.phone.replace(/[^+\d]/g, '')}`}>{SELLER.phone}</a>
+          </div>
           <div className="legal-socials">
             <a href="https://instagram.com/lor_omarova" aria-label="Instagram">
               <img src={socInstagram} alt="Instagram" />

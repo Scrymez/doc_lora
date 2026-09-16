@@ -745,6 +745,24 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
 }
 .vp-time { color:#fff; font-size:13px; font-variant-numeric:tabular-nums; white-space:nowrap; text-shadow:0 1px 3px rgba(0,0,0,0.7); }
 .vp-spacer { flex:1; }
+/* Cookie-баннер */
+.cookie-banner {
+  position:fixed; left:12px; right:12px; bottom:12px; z-index:1000;
+  display:flex; flex-direction:column; gap:10px;
+  padding:14px 16px; border-radius:16px;
+  background:rgba(42,25,18,0.97); color:#fff1f1;
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+.cookie-text { font-size:12.5px; line-height:1.45; }
+.cookie-text a { color:#ffbf8f; text-decoration:underline; }
+.cookie-btn {
+  align-self:flex-start; padding:9px 22px; border:0; border-radius:999px; cursor:pointer;
+  background:linear-gradient(110deg,#f34d05 1.6%,#ec734b 52%,#f34d05 109%);
+  color:#fff; font-size:13px; font-weight:700;
+}
+@media (min-width:640px) {
+  .cookie-banner { left:auto; right:20px; bottom:20px; max-width:420px; }
+}
 .footer-sign { display:block; margin-top:18px; color:#af5131; font:800 20px var(--font-display); text-transform:uppercase; }
 .footer-button { display:flex; width:68%; min-width:250px; margin:14px auto 0; align-items:center; justify-content:center; padding:14px 22px; border-radius:32.778px; background:linear-gradient(110deg,#f34d05 1.6%,#ec734b 52%,#f34d05 109%); box-shadow:inset 0 0 39.33px rgba(255,255,255,0.6),0 0 25px rgba(243,116,66,0.7); color:#fff1f1; font-size:16px; font-weight:700; text-transform:uppercase; }
 .disclaimer-section { padding:44px 26px 78px; border-bottom:12px solid #2f211c; background:#f7e1c2; }
@@ -757,6 +775,9 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
 .legal-footer { padding:44px 26px 40px; background:#2e2621; color:#fff; text-align:left; }
 .legal-brand h2 { font-size:22px; font-weight:700; }
 .legal-brand p { margin-top:14px; max-width:332px; color:rgba(255,255,255,0.5); font-size:14px; line-height:1.5; }
+.legal-contacts { margin-top:14px; display:flex; flex-direction:column; gap:4px; }
+.legal-contacts a { color:rgba(255,255,255,0.72); font-size:14px; text-decoration:none; }
+.legal-contacts a:hover { color:#ffbf8f; }
 .legal-socials { margin-top:20px; display:flex; gap:12px; }
 .legal-socials a { display:block; width:40px; height:40px; }
 .legal-socials a img { width:100%; height:100%; }
