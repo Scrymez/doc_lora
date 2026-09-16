@@ -1,0 +1,47 @@
+# ── Безопасность ────────────────────────────────────────────────
+# Запрет листинга директорий
+Options -Indexes
+
+# Заголовки безопасности
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  # чуть меньше отпечатка сервера
+  Header unset X-Powered-By
+</IfModule>
+
+# Закрыть доступ к служебным/чувствительным файлам
+<FilesMatch "(^\.|\.(sample\.php|md|log|sh|json)$|config\.php|send-test\.php)">
+  Require all denied
+</FilesMatch>
+# site.webmanifest и robots/sitemap должны быть доступны — вернём их
+<FilesMatch "^(site\.webmanifest)$">
+  Require all granted
+</FilesMatch>
+
+# ── SPA-роутинг ─────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # реальные файлы и папки (в т.ч. /pay/pay-callback.php) отдаём напрямую
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # остальные маршруты — на SPA
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ── Кэш статики ─────────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
