@@ -14,6 +14,10 @@
  * ВАЖНО: реальные ключи держим в config.php (рядом), он НЕ коммитится в git.
  */
 
+// При запуске из CLI (тестовая отправка) — пропускаем обработку вебхука,
+// но оставляем определения функций доступными для подключающего скрипта.
+if (PHP_SAPI !== 'cli') {
+
 // Не показываем ошибки наружу (утечка путей/деталей)
 @ini_set('display_errors', '0');
 error_reporting(0);
@@ -81,22 +85,76 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 echo json_encode(['code' => 0]);
 exit;
 
+} // конец веб-обработки (не-CLI)
+
+
+function build_course_email_html(): string
+{
+    // Ссылки (не секретные). Можно переопределить в config.php при необходимости.
+    $gcLink = 'https://omarovalor.getcourse.ru/teach/control/stream/view/id/935058123';
+    $tgLink = 'https://t.me/+14PWzTFB9483NTFi';
+
+    return '<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8">'
+        . '<meta name="viewport" content="width=device-width,initial-scale=1"></head>'
+        . '<body style="margin:0;padding:0;background:#f3e3c8;">'
+        . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3e3c8;padding:24px 12px;">'
+        . '<tr><td align="center">'
+        . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#fffaf2;border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(66,40,30,0.12);">'
+
+        // Шапка
+        . '<tr><td style="background:linear-gradient(135deg,#a84322,#f34d05);padding:34px 30px;text-align:center;">'
+        . '<div style="font:700 13px Arial,sans-serif;letter-spacing:2px;color:#ffe9d5;text-transform:uppercase;">Доктор Маржанат Омарова</div>'
+        . '<div style="font:800 26px Arial,sans-serif;color:#ffffff;margin-top:8px;">Спасибо за доверие! 🎉</div>'
+        . '</td></tr>'
+
+        // Приветствие
+        . '<tr><td style="padding:30px 30px 6px;font:400 16px/1.6 Arial,sans-serif;color:#42281e;">'
+        . '<p style="margin:0 0 14px;">Благодарю тебя за доверие к Доктору! Ты успешно оплатила участие на курсе Маржанат Омаровой <b>«Не болей-ка»</b>.</p>'
+        . '<p style="margin:0;">Материалы будут доступны в твоём личном кабинете на платформе <b>GetCourse</b>.</p>'
+        . '</td></tr>'
+
+        // Блок доступа
+        . '<tr><td style="padding:20px 30px 6px;">'
+        . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fcf1e0;border-radius:16px;">'
+        . '<tr><td style="padding:22px 22px 8px;font:700 17px Arial,sans-serif;color:#a84322;">Как попасть в личный кабинет</td></tr>'
+        . '<tr><td style="padding:0 22px 6px;font:400 15px/1.6 Arial,sans-serif;color:#42281e;">'
+        . '1. Перейди по кнопке ниже.<br>'
+        . '2. Введи логин — почту, указанную при оплате.<br>'
+        . '3. Установи пароль (нажми «Восстановить», если нужно).'
+        . '</td></tr>'
+        . '<tr><td style="padding:14px 22px 22px;" align="center">'
+        . '<a href="' . $gcLink . '" style="display:inline-block;padding:15px 30px;background:linear-gradient(110deg,#f34d05,#ec734b);color:#ffffff;text-decoration:none;border-radius:12px;font:700 16px Arial,sans-serif;">Войти в личный кабинет</a>'
+        . '</td></tr>'
+        . '<tr><td style="padding:0 22px 20px;font:400 12px/1.5 Arial,sans-serif;color:#9a8a80;">Если кнопка не открывается, скопируй ссылку:<br><a href="' . $gcLink . '" style="color:#a84322;">' . $gcLink . '</a></td></tr>'
+        . '</table></td></tr>'
+
+        // Совет про приложение
+        . '<tr><td style="padding:14px 30px 0;font:400 14px/1.6 Arial,sans-serif;color:#6a4d3c;">'
+        . 'Для удобства можно скачать мобильное приложение <b>GetCourse</b> и авторизоваться там.'
+        . '</td></tr>'
+
+        // Подарочный канал
+        . '<tr><td style="padding:20px 30px 6px;">'
+        . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#42281e;border-radius:16px;">'
+        . '<tr><td style="padding:22px;font:400 15px/1.6 Arial,sans-serif;color:#fff1f1;">'
+        . '<div style="font:700 17px Arial,sans-serif;color:#ffbf8f;margin-bottom:8px;">Подарок для тебя 🎁</div>'
+        . 'Внутри более 50 ценных постов и эксклюзивные подкасты с ответами на вопросы от Маржанат Омаровой 😍'
+        . '<div style="margin-top:16px;"><a href="' . $tgLink . '" style="display:inline-block;padding:13px 26px;background:#ffbf8f;color:#42281e;text-decoration:none;border-radius:12px;font:700 15px Arial,sans-serif;">Открыть подарочный канал</a></div>'
+        . '</td></tr></table></td></tr>'
+
+        // Подпись
+        . '<tr><td style="padding:26px 30px 30px;font:400 14px/1.6 Arial,sans-serif;color:#9a8a80;border-top:1px solid #f0e2cf;">'
+        . 'С теплом, <b style="color:#a84322;">Доктор Маржанат</b><br>'
+        . '<span style="font-size:12px;">Онлайн-курс «Жизнь без соплей»</span>'
+        . '</td></tr>'
+
+        . '</table></td></tr></table></body></html>';
+}
 
 function send_course_email(array $cfg, string $to): bool
 {
-    $subject = 'Доступ к курсу «Жизнь без соплей»';
-    $link = htmlspecialchars($cfg['course_link'], ENT_QUOTES, 'UTF-8');
-    $html = '<div style="font-family:Arial,sans-serif;font-size:16px;color:#42281e;line-height:1.6">'
-        . '<h2 style="color:#a84322">Спасибо за покупку! 🎉</h2>'
-        . '<p>Ваш доступ к онлайн-курсу <b>«Жизнь без соплей»</b> открыт.</p>'
-        . '<p>Ссылка на курс:</p>'
-        . '<p><a href="' . $link . '" style="display:inline-block;padding:12px 22px;'
-        . 'background:#f34d05;color:#fff;text-decoration:none;border-radius:10px;font-weight:bold">'
-        . 'Перейти к курсу</a></p>'
-        . '<p style="color:#6a4d3c;font-size:14px">Если кнопка не открывается, скопируйте ссылку:<br>'
-        . '<a href="' . $link . '">' . $link . '</a></p>'
-        . '<p style="color:#9a8a80;font-size:13px;margin-top:24px">С теплом, Доктор Маржанат</p>'
-        . '</div>';
+    $subject = 'Доступ к курсу открыт 🎉 Добро пожаловать!';
+    $html = build_course_email_html();
 
     // Если заданы SMTP-настройки — отправляем через SMTP (надёжнее), иначе mail()
     if (!empty($cfg['smtp_host'])) {

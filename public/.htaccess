@@ -14,7 +14,7 @@ Options -Indexes
 </IfModule>
 
 # Закрыть доступ к служебным/чувствительным файлам
-<FilesMatch "(^\.|\.(sample\.php|md|log|sh|json)$|config\.php)">
+<FilesMatch "(^\.|\.(sample\.php|md|log|sh|json)$|config\.php|send-test\.php)">
   Require all denied
 </FilesMatch>
 # site.webmanifest и robots/sitemap должны быть доступны — вернём их

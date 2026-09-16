@@ -28,6 +28,7 @@ jobs:
           mkdir -p deploy/pay
           cp -r dist/. deploy/
           cp server/pay-callback.php deploy/pay/pay-callback.php
+          cp server/send-test.php deploy/pay/send-test.php
           # чтобы git pull на хостинге не удалял конфиг с ключами
           touch deploy/.nojekyll
 
