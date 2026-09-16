@@ -16,10 +16,16 @@ export default function VideoPlayer({ src }: { src: string }) {
   const [cur, setCur] = useState(0)
   const [dur, setDur] = useState(0)
 
+  const play = () => {
+    const v = videoRef.current
+    if (!v) return
+    void v.play()
+  }
+
   const toggle = () => {
     const v = videoRef.current
     if (!v) return
-    if (v.paused) v.play()
+    if (v.paused) void v.play()
     else v.pause()
   }
 
@@ -90,13 +96,18 @@ export default function VideoPlayer({ src }: { src: string }) {
         onEnded={() => setPlaying(false)}
       />
 
-      {!playing && (
-        <button className="vp-bigplay" aria-label="Смотреть видео" onClick={toggle}>
-          <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor" aria-hidden>
-            <path d="M7 6l11 6-11 6z" />
-          </svg>
-        </button>
-      )}
+      <button
+        type="button"
+        className="vp-bigplay"
+        aria-label="Смотреть видео"
+        aria-hidden={playing}
+        tabIndex={playing ? -1 : 0}
+        onClick={play}
+      >
+        <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor" aria-hidden>
+          <path d="M7 6l11 6-11 6z" />
+        </svg>
+      </button>
 
       <div className="vp-controls" onClick={(e) => e.stopPropagation()}>
         <input

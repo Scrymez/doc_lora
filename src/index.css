@@ -685,10 +685,11 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
   background:linear-gradient(122deg,#f34d05 7%,#ec734b 51%,#f34d05 100%); color:#fff;
   display:flex; align-items:center; justify-content:center;
   box-shadow:0 8px 26px rgba(243,77,5,0.5), inset 0 0 30px rgba(255,255,255,0.35);
-  transition:transform 0.2s ease;
+  z-index:4; transition:transform 0.2s ease, opacity 0.25s ease, visibility 0.25s ease;
 }
 .vp-bigplay svg { width:26px; height:26px; }
 .vp-bigplay:hover { transform:translate(-50%,-50%) scale(1.06); }
+.vp.vp-playing .vp-bigplay { opacity:0; visibility:hidden; pointer-events:none; }
 
 .vp-controls {
   position:absolute; left:0; right:0; bottom:0; padding:34px 12px 10px;
