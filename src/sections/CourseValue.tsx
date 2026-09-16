@@ -75,7 +75,7 @@ export default function CourseValue() {
 
         <hr className="my-6 border-white/15" />
         <p className="text-center text-[14px] leading-[20px] text-[#fff1f1]">
-          А на руках останутся гайды, чек-листы и дневник наблюдений — чтобы
+          А на руках останутся гайды, чек-листы и готовые конспекты — чтобы
           возвращаться к ним в любой момент
         </p>
       </div>
