@@ -721,22 +721,18 @@ footer { padding:76px 24px 84px; background:#f7e1c2; text-align:center; }
 .vp-btn svg { width:20px; height:20px; filter:drop-shadow(0 1px 2px rgba(0,0,0,0.6)); }
 .vp-vol svg { transform:translateX(2px); }
 .vp-btn:hover { background:var(--color-accent); color:#fff; }
-/* Регулятор громкости — появляется при наведении на значок звука */
-.vp-vol-wrap { position:relative; display:flex; align-items:center; }
+/* Регулятор громкости — горизонтальный, раскрывается вбок при наведении */
+.vp-vol-wrap { display:flex; align-items:center; gap:6px; }
 .vp-volpanel {
-  position:absolute; left:50%; bottom:calc(100% + 6px); transform:translateX(-50%);
-  display:flex; align-items:center; justify-content:center;
-  height:104px; width:34px; padding:12px 0; border-radius:999px;
-  background:rgba(28,18,14,0.92); box-shadow:0 6px 18px rgba(0,0,0,0.35);
-  opacity:0; visibility:hidden; transition:opacity 0.18s ease, visibility 0.18s ease;
-  z-index:5;
+  display:flex; align-items:center; overflow:hidden;
+  width:0; opacity:0;
+  transition:width 0.25s ease, opacity 0.2s ease;
 }
 .vp-vol-wrap:hover .vp-volpanel,
-.vp-volpanel:hover { opacity:1; visibility:visible; }
+.vp-vol-wrap:focus-within .vp-volpanel { width:84px; opacity:1; }
 .vp-volslider {
-  -webkit-appearance:none; appearance:none; width:80px; height:5px; border-radius:999px; cursor:pointer;
-  transform:rotate(-90deg);
-  background:linear-gradient(to right, #f34d05 var(--vp-vol,100%), rgba(255,255,255,0.3) var(--vp-vol,100%));
+  -webkit-appearance:none; appearance:none; width:78px; height:5px; border-radius:999px; cursor:pointer;
+  background:linear-gradient(to right, #f34d05 var(--vp-vol,100%), rgba(255,255,255,0.35) var(--vp-vol,100%));
 }
 .vp-volslider::-webkit-slider-thumb {
   -webkit-appearance:none; width:13px; height:13px; border-radius:50%;

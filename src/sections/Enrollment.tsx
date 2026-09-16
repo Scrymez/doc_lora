@@ -119,7 +119,7 @@ export default function Enrollment() {
             <a href="https://instagram.com/lor_omarova" aria-label="Instagram">
               <img src={socInstagram} alt="Instagram" />
             </a>
-            <a href="https://t.me/lor_omarova" aria-label="Telegram">
+            <a href="https://t.me/marzhanatomarova" aria-label="Telegram">
               <img src={socTelegram} alt="Telegram" />
             </a>
             <a href="https://vk.com/lor_omarova" aria-label="ВКонтакте">

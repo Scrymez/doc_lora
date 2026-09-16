@@ -52,10 +52,24 @@ export default function VideoPlayer({ src }: { src: string }) {
   }
 
   const fullscreen = () => {
-    const el = wrapRef.current
-    if (!el) return
-    if (document.fullscreenElement) document.exitFullscreen()
-    else el.requestFullscreen?.()
+    const el = wrapRef.current as (HTMLDivElement & {
+      webkitRequestFullscreen?: () => void
+    }) | null
+    const v = videoRef.current as (HTMLVideoElement & {
+      webkitEnterFullscreen?: () => void
+    }) | null
+    const doc = document as Document & {
+      webkitFullscreenElement?: Element
+      webkitExitFullscreen?: () => void
+    }
+    if (document.fullscreenElement || doc.webkitFullscreenElement) {
+      if (document.exitFullscreen) document.exitFullscreen()
+      else doc.webkitExitFullscreen?.()
+      return
+    }
+    if (el?.requestFullscreen) el.requestFullscreen()
+    else if (el?.webkitRequestFullscreen) el.webkitRequestFullscreen()
+    else if (v?.webkitEnterFullscreen) v.webkitEnterFullscreen()
   }
 
   const progress = dur ? (cur / dur) * 100 : 0
